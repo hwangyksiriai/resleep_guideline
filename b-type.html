@@ -1572,6 +1572,11 @@
   const appDetailAddressEl = document.getElementById('appDetailAddress');
   if (appDetailAddressEl) appDetailAddressEl.addEventListener('input', updateFullAddress);
 
+  // 한글 등 멀티바이트 문자가 전송 중 깨지지 않도록 UTF-8 JSON 문자열을 base64로 변환
+  function utf8ToBase64(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+
   function normalizeInstagramLink(value) {
     let v = (value || '').trim();
     if (!v) return '';
@@ -1627,7 +1632,7 @@
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(data)
+      body: utf8ToBase64(JSON.stringify(data))
     }).then(() => {
       showToast('제출이 완료되었습니다');
       form.reset();

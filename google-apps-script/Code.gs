@@ -18,9 +18,10 @@ var HEADERS = ['접수일시', '타입', '고료', '이름', '인스타그램', 
 
 function doPost(e) {
   try {
-    // e.postData.contents는 멀티바이트(한글) 문자가 깨지는 경우가 있어
-    // 원본 바이트를 UTF-8로 직접 디코딩해서 사용합니다.
-    var contents = Utilities.newBlob(e.postData.getBytes()).getDataAsString('UTF-8');
+    // 클라이언트에서 JSON을 base64로 인코딩해서 보내고(utf8ToBase64),
+    // 여기서 base64 → 원본 바이트 → UTF-8 문자열로 디코딩합니다.
+    // base64 전송 구간은 순수 ASCII라 중간에 인코딩이 깨질 여지가 없습니다.
+    var contents = Utilities.newBlob(Utilities.base64Decode(e.postData.contents)).getDataAsString('UTF-8');
     var data = JSON.parse(contents);
     var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
     var sheet = ss.getSheetByName(SHEET_NAME) || ss.getSheets()[0];
