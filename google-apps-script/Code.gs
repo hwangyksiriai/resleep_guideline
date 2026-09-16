@@ -18,7 +18,10 @@ var HEADERS = ['접수일시', '타입', '고료', '이름', '인스타그램', 
 
 function doPost(e) {
   try {
-    var data = JSON.parse(e.postData.contents);
+    // e.postData.contents는 멀티바이트(한글) 문자가 깨지는 경우가 있어
+    // 원본 바이트를 UTF-8로 직접 디코딩해서 사용합니다.
+    var contents = Utilities.newBlob(e.postData.getBytes()).getDataAsString('UTF-8');
+    var data = JSON.parse(contents);
     var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
     var sheet = ss.getSheetByName(SHEET_NAME) || ss.getSheets()[0];
 
