@@ -41,6 +41,10 @@
       --tag-bg: #EFE9F7;
       --on-brand: #FFFFFF;
       --on-brand-accent: #DCD3F2;
+      --caution: #C0504D;
+      --caution-line: #E8C4C2;
+      --caution-pale: #FCF3F2;
+      --caution-text: #8A4C49;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -368,16 +372,11 @@
     .guard-grid { display: grid; gap: 12px; }
     .guard-box { border-radius: 12px; padding: 18px 20px; }
     .guard-box.must { background: var(--text-dark); }
-    .guard-box.avoid { background: var(--warm-white); border: 1px solid var(--border); }
-    .guard-title {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+    .guard-box.avoid {
+      background: var(--caution-pale);
+      border: 1px solid var(--caution-line);
+      border-left: 3px solid var(--caution);
     }
-    .guard-box.must .guard-title { color: #FFFFFF; }
-    .guard-box.avoid .guard-title { color: var(--text-dark); }
     .guard-item {
       font-size: 12.5px;
       line-height: 1.7;
@@ -385,8 +384,9 @@
       position: relative;
     }
     .guard-box.must .guard-item { color: rgba(255,255,255,0.85); }
-    .guard-box.avoid .guard-item { color: var(--text-mid); }
+    .guard-box.avoid .guard-item { color: var(--caution-text); font-weight: 500; }
     .guard-item::before { content: '\25A1'; position: absolute; left: 0; opacity: 0.7; }
+    .guard-box.avoid .guard-item::before { content: '\2715'; color: var(--caution); opacity: 1; font-weight: 700; }
 
     /* ANGLE / USAGE TABLE */
     .angle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -520,6 +520,11 @@
     .fold[open] .fold-chevron { transform: rotate(180deg); color: var(--brand-text); }
     .fold-body { padding: 16px; border-top: 1px solid var(--border); background: var(--cream); }
     .fold-group { display: flex; flex-direction: column; gap: 10px; }
+    .fold-avoid .fold-title { color: var(--caution); }
+    .fold-avoid .fold-icon { background: var(--caution-pale); color: var(--caution); }
+    .fold-avoid[open] { border-color: var(--caution-line); }
+    .fold-avoid[open] .fold-icon { background: var(--caution-pale); color: var(--caution); border: 1px solid var(--caution-line); }
+    .fold-avoid[open] .fold-chevron { color: var(--caution); }
 
     @media (max-width: 480px) {
       .brief-line { font-size: 16.5px; }
@@ -1321,23 +1326,35 @@
   <div class="fold-group">
   <details class="fold">
     <summary class="fold-summary">
-      <span class="fold-icon">&#9878;</span>
-      <span class="fold-title">콘텐츠 가드레일</span>
-      <span class="fold-count">Do&nbsp;/&nbsp;Don't</span>
+      <span class="fold-icon">&#10003;</span>
+      <span class="fold-title">이렇게 해주세요</span>
+      <span class="fold-count">4</span>
       <span class="fold-chevron">&#8964;</span>
     </summary>
     <div class="fold-body">
-  <div class="ref-note" style="margin-bottom:12px;">조심해야 하는 표현은 <strong>'붉은색'</strong>으로 별도 표기됩니다. 필수 요소와 금지 표현을 분리해 크리에이티브 자유도를 지켜주세요.</div>
+  <div class="ref-note" style="margin-bottom:12px;">필수 요소와 금지 표현을 분리해 크리에이티브 자유도를 지켜주세요.</div>
   <div class="guard-grid">
     <div class="guard-box must">
-      <div class="guard-title">Do</div>
       <div class="guard-item">아이 옷에도 사용할 수 있는 제품 / 아이를 포함한 가족 모두의 데일리 세탁 케어로 표현</div>
       <div class="guard-item">매일 피부에 닿는 세탁물 / 세탁 후 남을 수 있는 세제 / 마지막 헹굼 단계의 관리로 표현</div>
       <div class="guard-item">깨끗해 보이는 것과 제대로 씻겨 나가는 것의 차이를 생활 관점에서 설명</div>
       <div class="guard-item">확보된 시험 결과와 제품 소개서에 명시된 기능 범위 안에서 Proof 활용</div>
     </div>
+  </div>
+    </div>
+  </details>
+
+  <details class="fold fold-avoid">
+    <summary class="fold-summary">
+      <span class="fold-icon">&#10005;</span>
+      <span class="fold-title">이렇게 하지 말아주세요</span>
+      <span class="fold-count">4</span>
+      <span class="fold-chevron">&#8964;</span>
+    </summary>
+    <div class="fold-body">
+  <div class="ref-note" style="margin-bottom:12px;">아래 네 가지는 <strong>반드시 피해야 하는 표현</strong>입니다. 광고 심의와 직결되는 부분이라 해당 내용이 포함되면 수정 요청이 나갈 수 있습니다.</div>
+  <div class="guard-grid">
     <div class="guard-box avoid">
-      <div class="guard-title">Don't</div>
       <div class="guard-item">아이 전용 제품, 영유아 전용 제품으로 표현하지 않음</div>
       <div class="guard-item">잔류세제가 아토피&middot;피부질환&middot;알레르기의 원인이라는 직접적인 인과 표현 금지</div>
       <div class="guard-item">아이에게 위험하다, 피부를 공격한다 등 공포를 과도하게 자극하는 표현 지양</div>
