@@ -472,6 +472,86 @@
     .idea-name { font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 3px; }
     .idea-desc { font-size: 12.5px; color: var(--text-mid); line-height: 1.6; }
 
+    /* A / B PICK-ONE */
+    .pick-note {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: var(--brand-pale);
+      border: 1px solid var(--brand-line);
+      border-radius: 12px;
+      padding: 13px 15px;
+    }
+    .pick-note-badge {
+      flex-shrink: 0;
+      background: var(--brand);
+      color: var(--on-brand);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 10px;
+      margin-top: 1px;
+    }
+    .pick-note-text { font-size: 12.5px; color: var(--text-mid); line-height: 1.7; word-break: keep-all; }
+    .pick-note-text strong { color: var(--text-dark); font-weight: 700; }
+
+    /* B PLAN — 12-STEP STORYBOARD */
+    .bstep-hook {
+      margin-top: 14px;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .bstep-hook-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--brand-text);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .bstep-hook-line { font-size: 15px; font-weight: 700; color: var(--text-dark); line-height: 1.45; word-break: keep-all; }
+    .bstep-hook-msg { margin-top: 9px; font-size: 12px; color: var(--text-mid); line-height: 1.6; word-break: keep-all; }
+    .bstep-hook-msg span { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; color: var(--brand-text); margin-bottom: 3px; }
+    .bstep-list { margin: 14px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .bstep {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 15px;
+    }
+    .bstep-head { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
+    .bstep-num {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--brand-pale);
+      border: 1px solid var(--brand-line);
+      color: var(--brand-text);
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bstep-name { font-size: 13px; font-weight: 700; color: var(--text-dark); word-break: keep-all; }
+    .bstep-shot { font-size: 12.5px; color: var(--text-mid); line-height: 1.6; word-break: keep-all; }
+    .bstep-line {
+      margin-top: 9px;
+      background: var(--tag-bg);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 12.5px;
+      color: var(--text-dark);
+      line-height: 1.55;
+      word-break: keep-all;
+    }
+    .bstep-props { margin-top: 9px; font-size: 11.5px; color: var(--text-mid); word-break: keep-all; }
+    .bstep-props span { font-weight: 700; color: var(--brand-text); margin-right: 6px; }
+
     /* FOLD (섹션 아코디언) */
     .fold {
       background: #FFFFFF;
@@ -982,6 +1062,7 @@
     /* KOREAN LINE-BREAKING */
     .about-lead, .about-item-desc, .concept-intro, .key-msg-text, .quote-chip,
     .sub-list li, .info-row, .ref-note,
+    .pick-note-text, .bstep-shot, .bstep-line,
     .warning-box {
       text-wrap: pretty;
     }
@@ -1180,10 +1261,15 @@
   <div style="font-size:12px;font-weight:700;color:var(--text-mid);margin:24px 0 10px;letter-spacing:0.03em;">&#9654; 상세 가이드 <span style="font-weight:500;color:var(--text-light);">— 항목을 탭하여 펼쳐보세요</span></div>
   <div class="concept-list">
 
-    <details class="concept" open>
+    <div class="pick-note">
+      <div class="pick-note-badge">택 1</div>
+      <div class="pick-note-text">스토리 흐름은 <strong>A안 &middot; B안 중 하나를 선택</strong>해 제작해 주세요. 두 안 모두 핵심 메시지와 아래 필수 포함 항목은 동일하며, 96.3% 비교시험 결과는 <strong>A안은 오프닝에, B안은 후반부에</strong> 배치합니다.<br>대본을 그대로 외워 읽는 방식보다, 핵심 방향만 유지한 채 <strong>본인의 실제 생활과 말투로 바꿔</strong> 자연스러운 장면 위주로 촬영해 주세요.</div>
+    </div>
+
+    <details class="concept">
       <summary class="concept-summary">
-        <span class="concept-num">1</span>
-        <span class="concept-name">추천 스토리 흐름&nbsp;·&nbsp;<span class="nb">8단계</span></span>
+        <span class="concept-num">A</span>
+        <span class="concept-name">A안&nbsp;&middot;&nbsp;시험 결과로 시작하는 흐름&nbsp;&middot;&nbsp;<span class="nb">8단계</span></span>
         <span class="concept-chevron">&#8964;</span>
       </summary>
       <div class="concept-body">
@@ -1204,6 +1290,98 @@
           <div class="quote-chip">"저는 얼룩이 지워지고 냄새가 괜찮으면 빨래가 끝났다고 생각했거든요. 근데 마지막에 얼마나 제대로 씻겨 나갔는지도 세탁의 일부라고 생각하게 됐어요."</div>
           <div class="quote-chip">"사용 조건에 맞게 계량해서 세탁 시작 전에 유연제 칸에 넣어두면, 마지막 헹굼 단계에서 사용돼요."</div>
         </div>
+      </div>
+    </details>
+
+    <details class="concept">
+      <summary class="concept-summary">
+        <span class="concept-num">B</span>
+        <span class="concept-name">B안&nbsp;&middot;&nbsp;하루 동안 닿는 세탁물&nbsp;&middot;&nbsp;<span class="nb">12단계</span></span>
+        <span class="concept-chevron">&#8964;</span>
+      </summary>
+      <div class="concept-body">
+        <div class="concept-intro">아침부터 잠들 때까지 사용하는 <strong>수건&middot;옷&middot;잠옷&middot;침구</strong>를 감성적으로 따라가는 흐름입니다. 제품부터 설명하지 않고 "생각해보니 하루 종일 세탁한 섬유와 함께 살고 있었다"는 발견에서 <strong>마지막 헹굼</strong>의 중요성으로 연결합니다.</div>
+
+        <div class="bstep-hook">
+          <div class="bstep-hook-label">오프닝 후킹</div>
+          <div class="bstep-hook-line">「하루 동안 피부에 닿는 세탁물이 몇 개일까요?」</div>
+          <div class="bstep-hook-msg"><span>영상 핵심 메시지</span>"매일 입고, 닦고, 덮는 것들이니까. 마지막 헹굼까지."</div>
+        </div>
+
+        <ol class="bstep-list">
+          <li class="bstep">
+            <div class="bstep-head"><span class="bstep-num">01</span><span class="bstep-name">아침 &mdash; 수건</span></div>
+            <div class="bstep-shot">아침 자연광. 세안 후 수건으로 얼굴 또는 손의 물기를 닦는 모습. 제품은 아직 보여주지 않습니다.</div>
+            <div class="bstep-line">"생각해보면 우리는 아침에 눈을 뜨는 순간부터 세탁한 것들과 하루를 시작해요."</div>
+            <div class="bstep-props"><span>준비 소품</span>깨끗한 수건</div>
+          </li>
+          <li class="bstep">
+            <div class="bstep-head"><span class="bstep-num">02</span><span class="bstep-name">외출 &mdash; 옷</span></div>
+            <div class="bstep-shot">옷장에서 셔츠&middot;티셔츠를 꺼내 입는 모습. 아이 옷을 준비하는 장면도 가능합니다.</div>
+            <div class="bstep-line">"하루 종일 입고 있는 옷도 그렇고&hellip;"</div>
+            <div class="bstep-props"><span>준비 소품</span>일상복, 아이 옷</div>
+          </li>
+          <li class="bstep">
+            <div class="bstep-head"><span class="bstep-num">03</span><span class="bstep-name">일상 &mdash; 생활 섬유</span></div>
+            <div class="bstep-shot">손을 닦는 수건 &rarr; 아이 옷 &rarr; 소파 담요 등 여러 생활 장면을 짧게 연결합니다.</div>
+            <div class="bstep-line">"손을 닦는 수건부터 아이가 입는 옷, 집에서 사용하는 패브릭까지."</div>
+            <div class="bstep-props"><span>준비 소품</span>수건, 아이 옷, 담요 등</div>
+          </li>
+          <li class="bstep">
+            <div class="bstep-head"><span class="bstep-num">04</span><span class="bstep-name">밤 &mdash; 잠옷과 침구</span></div>
+            <div class="bstep-shot">잠옷으로 갈아입기 &rarr; 베개에 눕기 &rarr; 이불을 덮는 장면.</div>
+            <div class="bstep-line">"그리고 하루의 마지막에는 잠옷과 침구가 있죠."</div>
+            <div class="bstep-props"><span>준비 소품</span>잠옷, 베개, 이불</div>
+          </li>
+          <li class="bstep">
+            <div class="bstep-head"><span class="bstep-num">05</span><span class="bstep-name">하나의 질문으로 연결</span></div>
+            <div class="bstep-shot">앞에서 등장한 수건&middot;옷&middot;잠옷&middot;베개커버를 하나씩 빨래바구니에 담습니다.</div>
+            <div class="bstep-line">"그런데 이걸 전부 빨면서 저는 늘 얼룩이 잘 없어졌나, 냄새가 잘 빠졌나만 생각했던 것 같아요."</div>
+            <div class="bstep-props"><span>준비 소품</span>빨래바구니, 생활 세탁물</div>
+          </li>
+          <li class="bstep">
+            <div class="bstep-head"><span class="bstep-num">06</span><span class="bstep-name">생각의 전환</span></div>
+            <div class="bstep-shot">세제를 넣고 세탁기가 돌아가는 모습. 화면을 잠시 차분하게 전환합니다.</div>
+            <div class="bstep-line">"그런데 정작 한 번도 생각하지 않았던 게 있었어요." &mdash; 잠시 멈춘 뒤 &mdash; <strong>"세탁에 사용한 세제는 얼마나 잘 씻겨 나갔을까?"</strong></div>
+            <div class="bstep-props"><span>준비 소품</span>세제, 세탁기</div>
+          </li>
+          <li class="bstep">
+            <div class="bstep-head"><span class="bstep-num">07</span><span class="bstep-name">잔류세제 FACT</span></div>
+            <div class="bstep-shot">세탁기 화면 위에 간결한 FACT 자막 또는 브랜드 제공 카드를 올립니다.</div>
+            <div class="bstep-line">"세탁이 끝난 뒤에도 세제 성분이 섬유에 남을 수 있고, 그 정도는 세제량이나 헹굼 조건 등에 따라 달라질 수 있다고 해요."</div>
+            <div class="bstep-props"><span>준비 소품</span>브랜드 FACT 카드</div>
+          </li>
+          <li class="bstep">
+            <div class="bstep-head"><span class="bstep-num">08</span><span class="bstep-name">새로운 세탁 기준</span></div>
+            <div class="bstep-shot">세탁기가 마지막 헹굼으로 넘어가는 느낌의 장면 &rarr; 제품을 집어 듭니다.</div>
+            <div class="bstep-line">"그래서 요즘은 하나를 더 챙기기 시작했어요. 바로 <strong>마지막 헹굼</strong>."</div>
+            <div class="bstep-props"><span>준비 소품</span>리슬립 제품</div>
+          </li>
+          <li class="bstep">
+            <div class="bstep-head"><span class="bstep-num">09</span><span class="bstep-name">리슬립 + 사용법</span></div>
+            <div class="bstep-shot">제품 클로즈업 &rarr; 용기 누르기 &rarr; 계량부 &rarr; 유연제 칸 투입.</div>
+            <div class="bstep-line">"리슬립 세탁부스터는 마지막 헹굼에서 세제 잔여물을 관리하는 제품이에요. 사용 조건에 맞게 계량해서 세탁 시작 전에 유연제 칸에 넣어두면 돼요."</div>
+            <div class="bstep-props"><span>준비 소품</span>제품, 세탁기</div>
+          </li>
+          <li class="bstep">
+            <div class="bstep-head"><span class="bstep-num">10</span><span class="bstep-name">96.3% 시험 결과</span></div>
+            <div class="bstep-shot">브랜드 공식 시험결과 카드 &rarr; 제품 클로즈업.</div>
+            <div class="bstep-line">"비교시험에서는 리슬립 세탁부스터 사용 후 <strong>잔류세제 96.3% 제거</strong> 결과도 확인됐다고 해요."</div>
+            <div class="bstep-props"><span>준비 소품</span>공식 시험결과 카드</div>
+          </li>
+          <li class="bstep">
+            <div class="bstep-head"><span class="bstep-num">11</span><span class="bstep-name">다시 일상으로</span></div>
+            <div class="bstep-shot">세탁된 수건 걸기 &rarr; 옷장 정리 &rarr; 잠옷 접기 &rarr; 베개커버 씌우기.</div>
+            <div class="bstep-line">"매일 입고, 닦고, 덮는 것들이니까. 무엇으로 빨았는지만큼 <strong>어떻게 마무리했는지</strong>도 챙겨보려고요."</div>
+            <div class="bstep-props"><span>준비 소품</span>세탁 완료된 수건&middot;옷&middot;침구</div>
+          </li>
+          <li class="bstep">
+            <div class="bstep-head"><span class="bstep-num">12</span><span class="bstep-name">엔딩</span></div>
+            <div class="bstep-shot">정돈된 침실 또는 수건장 &rarr; 마지막에 제품을 자연스럽게 노출합니다.</div>
+            <div class="bstep-line">"이제 제 세탁은 마지막 헹굼까지예요."</div>
+            <div class="bstep-props"><span>준비 소품</span>제품, 침구 또는 수건</div>
+          </li>
+        </ol>
       </div>
     </details>
 
