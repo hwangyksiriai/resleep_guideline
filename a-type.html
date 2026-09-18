@@ -472,6 +472,30 @@
     .idea-name { font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 3px; }
     .idea-desc { font-size: 12.5px; color: var(--text-mid); line-height: 1.6; }
 
+    /* PROOF IMAGES */
+    .proof-shot {
+      margin-top: 10px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .proof-shot img { width: 100%; display: block; }
+    .proof-save { margin-top: 7px; font-size: 11.5px; font-weight: 500; color: var(--brand-text); line-height: 1.5; word-break: keep-all; }
+    .proof-pack { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border); }
+    .proof-pack-note { font-size: 12px; color: var(--text-mid); line-height: 1.6; margin-bottom: 10px; word-break: keep-all; }
+    .proof-pack-note strong { color: var(--text-dark); }
+    .proof-card { margin: 0 0 10px; }
+    .proof-card:last-child { margin-bottom: 0; }
+    .proof-card img {
+      width: 100%;
+      display: block;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .proof-card figcaption { margin-top: 6px; font-size: 11.5px; color: var(--text-mid); line-height: 1.5; word-break: keep-all; }
+
     /* A / B PICK-ONE */
     .pick-note {
       display: flex;
@@ -1399,6 +1423,10 @@
             <div>
               <div class="idea-name">96.3% 비교시험 결과로 시작하기</div>
               <div class="idea-desc">영상 초반에 잔류세제 제거 시험 결과를 보여주세요. '비교시험에서 확인된 제거 결과'라는 맥락을 함께 전달해 주세요.</div>
+              <div class="proof-shot">
+                <img src="image/proof-residue-96-3.png" alt="잔류세제 제거 96.3% 비교시험 결과 그래프" loading="lazy">
+              </div>
+              <div class="proof-save">이미지를 길게 눌러(PC는 우클릭) 저장한 뒤 영상에 넣어주세요.</div>
             </div>
           </div>
           <div class="idea-item">
@@ -1436,6 +1464,23 @@
               <div class="idea-desc">직접 사용한 경험을 바탕으로, 세탁을 마무리하는 습관이나 확인하는 기준이 어떻게 달라졌는지 이야기해 주세요.</div>
             </div>
           </div>
+        </div>
+
+        <div class="proof-pack">
+          <div class="concept-quotes-label">브랜드 제공 자료</div>
+          <div class="proof-pack-note">아래 자료는 영상 속 <strong>보조 Proof</strong>로 활용하실 수 있어요. 필요한 이미지를 저장해 사용해 주세요.</div>
+          <figure class="proof-card">
+            <img src="image/proof-fabric-care.png" alt="섬유 손상 보호 테스트 결과" loading="lazy">
+            <figcaption>섬유 손상 보호 테스트 &mdash; 반복 세탁에도 섬유의 짜임&middot;형태 유지</figcaption>
+          </figure>
+          <figure class="proof-card">
+            <img src="image/proof-color-recovery.png" alt="색상 복구력 테스트 결과" loading="lazy">
+            <figcaption>색상 복구력 테스트 &mdash; 손상된 섬유 색상 복구율 최대 58.71%</figcaption>
+          </figure>
+          <figure class="proof-card">
+            <img src="image/proof-4step.png" alt="잔여물 제거를 위한 4-STEP 클리닝 시스템" loading="lazy">
+            <figcaption>4-STEP CLEANING SYSTEM &mdash; 풀고, 떼어내고, 흘려보내고, 다시 붙지 않도록</figcaption>
+          </figure>
         </div>
       </div>
     </details>
