@@ -1,0 +1,12 @@
+{
+  "redirects": [
+    { "source": "/a-type.html", "destination": "/oct-1/a-type.html", "permanent": false },
+    { "source": "/b-type.html", "destination": "/oct-1/b-type.html", "permanent": false },
+    { "source": "/c-type.html", "destination": "/oct-1/c-type.html", "permanent": false },
+    { "source": "/d-type.html", "destination": "/oct-1/d-type.html", "permanent": false },
+    { "source": "/a-type", "destination": "/oct-1/a-type.html", "permanent": false },
+    { "source": "/b-type", "destination": "/oct-1/b-type.html", "permanent": false },
+    { "source": "/c-type", "destination": "/oct-1/c-type.html", "permanent": false },
+    { "source": "/d-type", "destination": "/oct-1/d-type.html", "permanent": false }
+  ]
+}

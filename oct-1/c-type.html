@@ -45,10 +45,6 @@
       --caution-line: #E8C4C2;
       --caution-pale: #FCF3F2;
       --caution-text: #8A4C49;
-      --alt: #5B94A6;
-      --alt-line: #9FC4CE;
-      --alt-pale: #EAF4F7;
-      --alt-text: #46798A;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -518,24 +514,15 @@
     }
     .pick-note-badge {
       flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-top: 1px;
-    }
-    .pick-chip {
-      display: block;
-      text-align: center;
+      background: var(--brand);
+      color: var(--on-brand);
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.04em;
-      color: #FFFFFF;
+      letter-spacing: 0.06em;
       padding: 3px 8px;
       border-radius: 10px;
-      white-space: nowrap;
+      margin-top: 1px;
     }
-    .pick-chip.a { background: var(--brand-deep); }
-    .pick-chip.b { background: var(--alt-text); }
     .pick-note-text { font-size: 12.5px; color: var(--text-mid); line-height: 1.7; word-break: keep-all; }
     .pick-note-text strong { color: var(--text-dark); font-weight: 700; }
 
@@ -643,20 +630,6 @@
     .fold[open] .fold-chevron { transform: rotate(180deg); color: var(--brand-text); }
     .fold-body { padding: 16px; border-top: 1px solid var(--border); background: var(--cream); }
     .fold-group { display: flex; flex-direction: column; gap: 10px; }
-    /* B안 — 색 구분 */
-    .concept.alt .concept-num { background: var(--alt-pale); color: var(--alt-text); }
-    .concept.alt[open] { border-color: var(--alt-line); }
-    .concept.alt[open] .concept-num { background: var(--alt-text); color: #FFFFFF; border: 1px solid var(--alt-line); }
-    .concept.alt .concept-name { color: var(--alt-text); }
-    .concept.alt[open] .concept-chevron { color: var(--alt-text); }
-    .concept.alt .concept-intro strong { color: var(--alt-text); }
-    .concept.alt .bstep-hook { background: var(--alt-pale); border-color: var(--alt-line); }
-    .concept.alt .bstep-hook-label, .concept.alt .bstep-hook-msg span { color: var(--alt-text); }
-    .concept.alt .bstep { border-color: var(--alt-line); }
-    .concept.alt .bstep-num { background: var(--alt-pale); border-color: var(--alt-line); color: var(--alt-text); }
-    .concept.alt .bstep-line { background: var(--alt-pale); }
-    .concept.alt .bstep-props span { color: var(--alt-text); }
-
     .fold-avoid .fold-title { color: var(--caution); }
     .fold-avoid .fold-icon { background: var(--caution-pale); color: var(--caution); }
     .fold-avoid[open] { border-color: var(--caution-line); }
@@ -1180,7 +1153,7 @@
 
 <!-- BANNER -->
 <div class="banner-wrap">
-  <img src="image/banner.png" alt="리슬립 배너" width="1216" height="812">
+  <img src="../image/banner.png" alt="리슬립 배너" width="1216" height="812">
   <div class="banner-overlay">
     <div class="header-eyebrow">Influencer Guideline</div>
     <div class="header-title">리슬립 가이드라인</div>
@@ -1199,7 +1172,7 @@
     피톤치드 기반의 에어&middot;패브릭 케어 제품부터 항균 베개커버, 슬립케어 제품까지 일상 속 쾌적한 수면 환경을 위한 다양한 제품을 선보이고 있습니다.
   </p>
   <div class="brand-img-wrap">
-    <img src="image/brand.png" alt="리슬립 브랜드">
+    <img src="../image/brand.png" alt="리슬립 브랜드">
   </div>
   <div class="about-grid">
     <div class="about-item">
@@ -1270,7 +1243,7 @@
   <!-- 제공 제품 -->
   <div style="font-size:12px;font-weight:700;color:var(--text-mid);margin-bottom:10px;letter-spacing:0.05em;">제공 제품</div>
   <div class="product-box">
-    <img src="image/product-01.png" alt="리슬립 잔류세제제거 4X 초고농축 세탁부스터" class="product-photo" loading="lazy">
+    <img src="../image/product-01.png" alt="리슬립 잔류세제제거 4X 초고농축 세탁부스터" class="product-photo" loading="lazy">
     <div class="product-name">잔류세제제거 4X 초고농축 세탁부스터 <span style="color:var(--text-light);font-weight:500;font-size:12.5px;">(300ml)</span></div>
 
     <div class="step-feat"><strong>잔류세제 강력 제거 — 96.3%</strong><span>섬유에 남아있는 세제 잔여물을 LOOSEN&rarr;RELEASE&rarr;DISPERSE&rarr;PROTECT 4-STEP 시스템으로 분리&middot;분산해 깔끔하게 제거합니다.</span></div>
@@ -1319,7 +1292,7 @@
   <div class="concept-list">
 
     <div class="pick-note">
-      <div class="pick-note-badge"><span class="pick-chip a">A안</span><span class="pick-chip b">B안</span></div>
+      <div class="pick-note-badge">A &middot; B안</div>
       <div class="pick-note-text">스토리 흐름은 <strong>A안 &middot; B안 두 가지</strong>예요. 어떤 안으로 진행할지는 브랜드에서 따로 안내드릴게요.<br>대본을 외우기보다 핵심 방향만 지키고, <strong>평소 말투로 편하게</strong> 담아주시면 좋아요.</div>
     </div>
 
@@ -1350,7 +1323,7 @@
       </div>
     </details>
 
-    <details class="concept alt">
+    <details class="concept">
       <summary class="concept-summary">
         <span class="concept-num">B</span>
         <span class="concept-name">B안&nbsp;&middot;&nbsp;하루 동안 닿는 세탁물&nbsp;&middot;&nbsp;<span class="nb">12단계</span></span>
@@ -1457,20 +1430,20 @@
               <div class="idea-name">96.3% 비교시험 결과로 시작하기</div>
               <div class="idea-desc">영상 초반에 잔류세제 제거 시험 결과를 보여주세요. '비교시험에서 확인된 제거 결과'라는 맥락을 함께 전달해 주세요.</div>
               <div class="proof-grid">
-                <a class="proof-thumb" href="image/proof-residue-96-3.png" target="_blank" rel="noopener">
-                  <img src="image/proof-residue-96-3.png" alt="잔류세제 제거 96.3% 비교시험 결과 그래프" loading="lazy">
+                <a class="proof-thumb" href="../image/proof-residue-96-3.png" target="_blank" rel="noopener">
+                  <img src="../image/proof-residue-96-3.png" alt="잔류세제 제거 96.3% 비교시험 결과 그래프" loading="lazy">
                   <span>잔류세제 제거 96.3%</span>
                 </a>
-                <a class="proof-thumb" href="image/proof-fabric-care.png" target="_blank" rel="noopener">
-                  <img src="image/proof-fabric-care.png" alt="섬유 손상 보호 테스트 결과" loading="lazy">
+                <a class="proof-thumb" href="../image/proof-fabric-care.png" target="_blank" rel="noopener">
+                  <img src="../image/proof-fabric-care.png" alt="섬유 손상 보호 테스트 결과" loading="lazy">
                   <span>섬유 손상 보호 테스트</span>
                 </a>
-                <a class="proof-thumb" href="image/proof-color-recovery.png" target="_blank" rel="noopener">
-                  <img src="image/proof-color-recovery.png" alt="색상 복구력 테스트 결과" loading="lazy">
+                <a class="proof-thumb" href="../image/proof-color-recovery.png" target="_blank" rel="noopener">
+                  <img src="../image/proof-color-recovery.png" alt="색상 복구력 테스트 결과" loading="lazy">
                   <span>색상 복구력 최대 58.71%</span>
                 </a>
-                <a class="proof-thumb" href="image/proof-4step.png" target="_blank" rel="noopener">
-                  <img src="image/proof-4step.png" alt="잔여물 제거를 위한 4-STEP 클리닝 시스템" loading="lazy">
+                <a class="proof-thumb" href="../image/proof-4step.png" target="_blank" rel="noopener">
+                  <img src="../image/proof-4step.png" alt="잔여물 제거를 위한 4-STEP 클리닝 시스템" loading="lazy">
                   <span>4-STEP 클리닝 시스템</span>
                 </a>
               </div>
@@ -1569,7 +1542,7 @@
         </div>
 
         <div class="brand-img-wrap" style="margin-bottom:0;">
-          <img src="image/howtouse-01.png" alt="리슬립 세탁부스터 사용법 - 유연제 칸 투입" loading="lazy">
+          <img src="../image/howtouse-01.png" alt="리슬립 세탁부스터 사용법 - 유연제 칸 투입" loading="lazy">
         </div>
       </div>
     </details>
@@ -1682,6 +1655,87 @@
   </div>
 </div>
 
+<!-- 캠페인 신청 -->
+<div class="section">
+  <div class="section-label">Application</div>
+  <div class="section-title">캠페인 신청</div>
+
+  <form id="applicationForm" onsubmit="return submitApplication(event)">
+    <div class="form-group">
+      <label class="form-label" for="appName">이름<span class="req">*</span></label>
+      <input type="text" id="appName" name="name" class="form-input" placeholder="홍길동" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="appInstagram">인스타그램 링크<span class="req">*</span></label>
+      <input type="text" id="appInstagram" name="instagram" class="form-input" placeholder="@username 또는 instagram.com/username" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="appPhone">휴대폰<span class="req">*</span></label>
+      <input type="tel" id="appPhone" name="phone" class="form-input" placeholder="010-0000-0000" inputmode="numeric" pattern="[0-9\-]*" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="appEmail">이메일<span class="opt">(선택)</span></label>
+      <input type="email" id="appEmail" name="email" class="form-input" placeholder="name@email.com">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="appZip">우편번호<span class="req">*</span></label>
+      <div class="form-row-zip">
+        <input type="text" id="appZip" name="zipcode" class="form-input" placeholder="00000" inputmode="numeric" pattern="[0-9]*" maxlength="5" readonly required>
+        <button type="button" class="zip-search-btn" onclick="searchAddress()">주소 검색</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="appRoadAddress">배송지 주소<span class="req">*</span></label>
+      <input type="text" id="appRoadAddress" name="roadAddress" class="form-input" placeholder="도로명 주소" readonly required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="appDetailAddress">상세 주소<span class="req">*</span></label>
+      <input type="text" id="appDetailAddress" name="detailAddress" class="form-input" placeholder="동·호수 등" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="appNote">요청사항<span class="opt">(선택)</span></label>
+      <textarea id="appNote" name="note" class="form-textarea" placeholder="배송 관련 요청사항을 적어주세요"></textarea>
+    </div>
+
+    <input type="hidden" id="appFullAddress" name="fullAddress">
+
+    <div class="warning-box">
+      ⚠️ <strong>배송지는 매 캠페인마다 새로 확인합니다.</strong><br>
+      오배송 방지를 위해 입력값을 다시 한번 체크해 주세요.
+    </div>
+
+    <div class="note-box" style="margin-top:16px;">
+      <div class="note-box-title">📌 업로드·정산 안내</div>
+      <ul>
+        <li>안내된 업로드 마감일까지 업로드 시 정산이 진행됩니다.</li>
+        <li>정산 자료 제출 후 <strong>2주</strong> 이내 지급됩니다.</li>
+      </ul>
+    </div>
+
+    <div class="note-box">
+      <div class="note-box-title">📌 콘텐츠 활용 안내</div>
+      <ul>
+        <li>콘텐츠는 브랜드 계정 내 스토리, 피드에 활용될 수 있습니다.</li>
+        <li>2차 활용에 동의해 주신 분들의 콘텐츠는 리슬립 공식 홈페이지, SNS, 플랫폼 등에 활용될 수 있는 점 참고 부탁드립니다.</li>
+      </ul>
+    </div>
+
+    <label class="agree-row">
+      <input type="checkbox" id="appAgree" name="agree" required>
+      <span>안내된 캠페인별 가이드라인 및 고료 조건을 확인했으며 이에 동의합니다.<br><br>제작된 콘텐츠는 브랜드 및 SIRIAI의 2차 활용에 동의합니다.<br><br><strong>(필수)</strong> 진행 제품은 브랜드 프로모션 상황에 따라 일부 변경될 수 있습니다.<br><br><strong>[필수]</strong> 캠페인 선정 후 개인 변심 및 일방적인 취소는 불가하며, 취소 시 <strong>제공된 제품 비용이 발생할 수 있음</strong>에 동의합니다.</span>
+    </label>
+
+    <button type="submit" class="submit-btn">리슬립 캠페인 지원서 제출하기</button>
+  </form>
+</div>
+
 <!-- 정산 -->
 <div class="section">
   <div class="section-label">Settlement</div>
@@ -1718,6 +1772,7 @@
 
 <div class="copy-toast" id="copyToast"></div>
 
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
   function showToast(text) {
     const toast = document.getElementById('copyToast');
@@ -1742,6 +1797,99 @@
     });
   });
 
+  // 신청 폼: 주소 검색 (다음 우편번호 서비스)
+  function searchAddress() {
+    new daum.Postcode({
+      oncomplete: function(data) {
+        document.getElementById('appZip').value = data.zonecode;
+        document.getElementById('appRoadAddress').value = data.roadAddress;
+        updateFullAddress();
+        document.getElementById('appDetailAddress').focus();
+      }
+    }).open();
+  }
+
+  function updateFullAddress() {
+    const road = document.getElementById('appRoadAddress').value.trim();
+    const detail = document.getElementById('appDetailAddress').value.trim();
+    document.getElementById('appFullAddress').value = [road, detail].filter(Boolean).join(' ');
+  }
+  const appDetailAddressEl = document.getElementById('appDetailAddress');
+  if (appDetailAddressEl) appDetailAddressEl.addEventListener('input', updateFullAddress);
+
+  // 한글 등 멀티바이트 문자가 전송 중 깨지지 않도록 UTF-8 JSON 문자열을 base64로 변환
+  function utf8ToBase64(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+
+  function normalizeInstagramLink(value) {
+    let v = (value || '').trim();
+    if (!v) return '';
+    if (/^https?:\/\//i.test(v)) return v;
+    v = v.replace(/^@/, '');
+    v = v.replace(/^(www\.)?instagram\.com\//i, '');
+    v = v.replace(/^\/+/, '').replace(/\/+$/, '');
+    return 'https://instagram.com/' + v;
+  }
+
+  const appInstagramEl = document.getElementById('appInstagram');
+  if (appInstagramEl) {
+    appInstagramEl.addEventListener('blur', () => {
+      if (appInstagramEl.value.trim()) {
+        appInstagramEl.value = normalizeInstagramLink(appInstagramEl.value);
+      }
+    });
+  }
+
+  // 구글시트 연동 설정
+  // google-apps-script/Code.gs를 스프레드시트에 배포한 뒤 발급되는 웹 앱 URL을 아래에 붙여넣어 주세요.
+  const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzDhXaoAiuU-RjCLFr_feuvbFVChRQsSatXUhdgiVaTgF0gRoKu7MXNDD90Xf_CYFZY/exec';
+  const APP_TIER = 'C';
+  const APP_PRICE = '20만원';
+
+  function submitApplication(e) {
+    e.preventDefault();
+    updateFullAddress();
+
+    const form = document.getElementById('applicationForm');
+    const data = {
+      tier: APP_TIER,
+      price: APP_PRICE,
+      name: form.name.value.trim(),
+      instagram: normalizeInstagramLink(form.instagram.value),
+      phone: String(form.phone.value.trim()),
+      email: form.email.value.trim(),
+      zipcode: String(form.zipcode.value.trim()),
+      address: form.fullAddress.value,
+      note: form.note.value.trim()
+    };
+
+    if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL.indexOf('YOUR_WEB_APP_URL') !== -1) {
+      console.log('캠페인 신청 데이터', data);
+      showToast('구글시트 연동 URL이 설정되지 않았습니다');
+      return false;
+    }
+
+    const submitBtn = document.querySelector('.submit-btn');
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '제출 중...'; }
+
+    fetch(GAS_WEB_APP_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: utf8ToBase64(JSON.stringify(data))
+    }).then(() => {
+      showToast('제출이 완료되었습니다');
+      form.reset();
+      document.getElementById('appFullAddress').value = '';
+    }).catch(() => {
+      showToast('제출 중 오류가 발생했습니다. 다시 시도해 주세요.');
+    }).finally(() => {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = '리슬립 캠페인 지원서 제출하기'; }
+    });
+
+    return false;
+  }
 </script>
 </body>
 </html>
