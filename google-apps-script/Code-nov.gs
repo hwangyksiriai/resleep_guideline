@@ -13,23 +13,11 @@
  *    ('새 배포'를 누르면 URL이 바뀌니 꼭 '배포 관리'에서 수정해 주세요)
  */
 
-// 시트 ID로 직접 엽니다 (Apps Script를 시트 밖에서 만들어도 동작)
-var SPREADSHEET_ID = '1jTNNjWFGIqxM3aes_O5-i2f7HtXwKTy_REQmm-OExm8';
 var TAB_NAME = '11월 자체 기획전';
 var HEADERS = ['접수일시', '타입', '고료', '이름', '인스타그램', '휴대폰', '이메일',
   '더빙 가능', '자녀 연령', '반려동물', '우편번호', '주소', '요청사항'];
 var TEXT_COLUMNS = ['휴대폰', '우편번호'];
 var TEST_MARK = '[테스트]';
-
-// 웹 앱 주소를 브라우저로 열었을 때 연결 확인용 응답
-function doGet() {
-  var sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName(TAB_NAME);
-  return ContentService.createTextOutput(JSON.stringify({
-    status: 'ok',
-    tab: sheet ? TAB_NAME : '(아직 없음 — setupColumns 실행 필요)',
-    rows: sheet ? Math.max(sheet.getLastRow() - 1, 0) : 0
-  })).setMimeType(ContentService.MimeType.JSON);
-}
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
@@ -70,7 +58,7 @@ function doPost(e) {
 // 탭이 없거나 비어 있으면 컬럼(헤더)을 만들어 둡니다
 function prepareSheet(tabName) {
   var name = String(tabName).replace(/[\[\]\*\?\/\\:]/g, ' ').slice(0, 90);
-  var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheetByName(name) || ss.insertSheet(name);
   if (sheet.getLastRow() === 0) {
     sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS])
@@ -138,7 +126,7 @@ function testByFee() {
 
 // 이름이 [테스트]로 시작하는 행만 지웁니다
 function deleteTests() {
-  var sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName(TAB_NAME);
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(TAB_NAME);
   if (!sheet || sheet.getLastRow() < 2) return;
   var nameCol = HEADERS.indexOf('이름');
   var values = sheet.getRange(2, 1, sheet.getLastRow() - 1, sheet.getLastColumn()).getValues();
