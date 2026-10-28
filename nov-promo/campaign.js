@@ -17,23 +17,19 @@ window.CAMPAIGN = {
 
   purpose: {
     title: '캠페인 목적&nbsp;·&nbsp;<span class="nb">자체 기획전</span>',
-    text: '리슬립 <strong>자체 기획전</strong>과 함께 진행하는 <strong>클린부스터</strong> 릴스 캠페인입니다. 메인 메시지는 <strong>잔류세제 96.3% 제거</strong>이고, 영상 마지막에 기획전 할인 소식을 함께 전달해 주세요.'
+    text: '리슬립 <strong>자체 기획전</strong>과 함께하는 <strong>클린부스터</strong> 릴스 캠페인이에요. 잔류세제 제거를 메인으로, 영상 끝에 기획전 할인 소식을 덧붙여 주세요.'
   },
-  overviewItems: [
-    ['메인 상품', '잔류세제제거 4X 초고농축 <strong>클린부스터</strong>'],
-    ['최대 할인율', '<strong>최대 53%</strong>']
-  ],
 
   recruit: [
-    '<strong>본인의 실제 목소리로 더빙</strong>이 가능하신 분 (AI 더빙 불가)',
-    '<strong>어린 자녀</strong>가 있으신 분 &mdash; <strong>영유아 자녀를 더 희망</strong>하며, 초등학생 이상 자녀는 해당되지 않아요.',
-    '반려견&middot;반려묘와 함께 지내시는 분은 <strong>우대(권장)</strong>해요. 필수 조건은 아니며, 신청서에서 <strong>체크만</strong> 해주세요.'
+    '<strong>본인 목소리로 더빙</strong> 가능하신 분 (AI 더빙 불가)',
+    '<strong>영유아 자녀</strong>가 있으신 분 우선 (초등학생 이상 제외)',
+    '반려견&middot;반려묘가 있으면 <strong>우대</strong> (필수 아님, 신청서에 체크만)'
   ],
 
   childRequired: true,   // 아이와 함께 촬영 필수 강조
   voiceRequired: true,   // 실제 목소리 더빙 필수
 
-  coreRequest: '<strong>아이와 함께 촬영</strong>하는 것이 이번 캠페인의 메인이에요. 핵심 기능인 <strong>잔류세제 제거 96.3%</strong>에 집중하고, <strong>잔류세제가 걱정됐던 실제 상황</strong>을 중심으로 <strong>본인의 실제 목소리</strong>로 클린부스터를 풀어가 주세요.',
+  coreRequest: '<strong>아이와 함께</strong> 촬영하고, <strong>잔류세제가 걱정됐던 실제 상황</strong>을 <strong>내 목소리</strong>로 풀어주세요.',
 
   promo: {
     name: '리슬립 자체 기획전',
