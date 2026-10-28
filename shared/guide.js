@@ -301,6 +301,7 @@
       }
     }
     const fields = [
+      ...(C.tier ? [['타입', C.tier], ['고료', C.price || '']] : []),
       ['이름', form.name.value.trim()],
       ['인스타그램', normIg(form.instagram.value)],
       ['휴대폰', form.phone.value.trim()],
