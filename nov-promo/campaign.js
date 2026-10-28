@@ -46,7 +46,7 @@ window.CAMPAIGN = {
 
   application: {
     enabled: true,
-    gasUrl: '',            // google-apps-script/Code-universal.gs 배포 후 웹 앱 URL 입력
+    gasUrl: 'https://script.google.com/macros/s/AKfycbwt202UzFI0ON1AlCt06ecvDWHS99TOKSXL2qovpwGFAMvqQqGY0zFRkz3IGrYIzlUw4w/exec',
     questions: [
       { key: 'voice', label: '실제 목소리 더빙 가능 여부', sheetLabel: '더빙 가능', type: 'radio', required: true,
         options: ['가능', '불가능'] },
