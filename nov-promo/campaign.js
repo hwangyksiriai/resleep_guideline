@@ -27,7 +27,7 @@ window.CAMPAIGN = {
   recruit: [
     '<strong>본인의 실제 목소리로 더빙</strong>이 가능하신 분 (AI 더빙 불가)',
     '<strong>어린 자녀</strong>가 있으신 분 &mdash; <strong>영유아 자녀를 더 희망</strong>하며, 초등학생 이상 자녀는 해당되지 않아요.',
-    '반려견&middot;반려묘 여부는 신청서에서 <strong>체크만</strong> 해주세요.'
+    '반려견&middot;반려묘와 함께 지내시는 분은 <strong>우대(권장)</strong>해요. 필수 조건은 아니며, 신청서에서 <strong>체크만</strong> 해주세요.'
   ],
 
   childRequired: true,   // 아이와 함께 촬영 필수 강조
@@ -53,7 +53,8 @@ window.CAMPAIGN = {
       { key: 'child', label: '자녀 연령', sheetLabel: '자녀 연령', type: 'checkbox', required: true,
         help: '자녀가 여러 명이면 모두 선택해 주세요.',
         options: ['0~12개월', '1~3세', '4~7세 (미취학)', '초등학생 이상', '자녀 없음'] },
-      { key: 'pet', label: '반려동물', sheetLabel: '반려동물', type: 'checkbox', required: true,
+      { key: 'pet', label: '반려동물', sheetLabel: '반려동물', type: 'checkbox', required: false,
+        help: '필수는 아니에요. 함께 지내는 반려동물이 있으면 체크만 해주세요.',
         options: ['반려견', '반려묘', '없음'] }
     ]
   }
