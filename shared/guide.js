@@ -235,8 +235,8 @@
   ${tags.length ? fold('#', '해시태그', 'badge', `<div class="hashtag-section" style="margin-top:0;"><div class="hashtag-label">필수 해시태그 <span class="required">필수</span></div><div class="hashtag-wrap">${tags.map(t => `<div class="hashtag req">${t}</div>`).join('')}</div><div class="ref-note">&bull; 그 외 협의된 개별 해시태그가 있는 경우 함께 추가해 주세요.</div></div>`) : ''}
 </div>`;
 
-    // 기획전 캠페인은 업로드 후 할인 내용을 뺀 영상도 따로 받습니다 (기획전 종료 후 활용용)
-    const review = list(B.ops.draftReview).concat(C.promo ? ['<strong>할인 미포함본:</strong> 업로드 후, <strong>기획전&middot;할인 내용을 뺀 영상</strong>도 추가로 전달 부탁드립니다.'] : []);
+    // cleanCutRequired: 업로드 후 클린본(자막·텍스트·할인 내용 없는 영상)을 필수로 받는 캠페인
+    const review = list(B.ops.draftReview).concat(C.cleanCutRequired ? ['<strong class="hl-text">클린본 제출 (필수):</strong> 업로드 후, <strong>자막&middot;텍스트&middot;기획전 할인 내용이 없는 클린본 영상</strong>을 꼭 함께 전달해 주세요.'] : []);
     if (review.length) h += `<div class="note-box" style="margin-top:20px;"><div class="note-box-title">📌 콘텐츠 초안 전달 및 검수 안내</div><ul>${review.map(d => `<li>${d}</li>`).join('')}</ul></div>`;
     h += `<div class="warning-box">&#9888;&#65039; <strong>업로드 기한 내 올리지 않으면 고료 지급이 불가해요.</strong></div>`;
 

@@ -28,6 +28,7 @@ window.CAMPAIGN = {
 
   childRequired: true,   // 아이와 함께 촬영 필수 강조
   voiceRequired: true,   // 실제 목소리 더빙 필수
+  cleanCutRequired: true, // 업로드 후 클린본 제출 필수
 
   coreRequest: '<strong>아이와 함께</strong> 촬영하고, <strong>잔류세제가 걱정됐던 실제 상황</strong>을 <strong>내 목소리</strong>로 풀어주세요.',
 
