@@ -1267,3 +1267,12 @@
       .ask-item-desc, .ask-links { margin-left: 0; }
       .situ-worry, .situ-card .quote-chip { margin-left: 0; }
     }
+
+    /* 작용 원리 */
+    .principle-base, .principle-outro { font-size: 13.5px; color: var(--text-dark); line-height: 1.7; }
+    .principle-steps { list-style: none; counter-reset: ps; display: grid; gap: 8px; margin: 12px 0; }
+    .principle-steps li { counter-increment: ps; display: grid; grid-template-columns: auto 1fr; column-gap: 10px; font-size: 13.5px; line-height: 1.6; }
+    .principle-steps li::before { content: counter(ps); grid-row: span 2; width: 22px; height: 22px; border-radius: 50%; background: var(--brand-pale); color: var(--brand-deep); font-size: 12px; font-weight: 700; line-height: 22px; text-align: center; margin-top: 1px; }
+    .principle-steps strong { color: var(--brand-deep); font-size: 12.5px; letter-spacing: 0.04em; }
+    .principle-steps span { color: var(--text-dark); }
+    .principle-outro { padding-top: 10px; border-top: 1px solid var(--border); }

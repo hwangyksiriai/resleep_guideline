@@ -179,6 +179,14 @@
     if (has(P.flowRequests)) h += `<div class="note-box"><div class="note-box-title">🎯 ${P.flowTitle || '영상 흐름'}</div>
   <ol style="padding-left:18px;font-size:12.5px;color:var(--text-mid);line-height:1.8;">${P.flowRequests.map(f => `<li>${f}</li>`).join('')}</ol></div>`;
 
+    // 작용 원리 설명 가이드 (기조 → 단계 → 결론)
+    const pc = P.principle;
+    if (pc) h += `<div class="note-box principle-box"><div class="note-box-title">🔬 ${pc.title || '작용 원리'}</div>
+  ${pc.base ? `<div class="principle-base">${pc.base}</div>` : ''}
+  <ol class="principle-steps">${list(pc.steps).map(s => `<li><strong>${s[0]}</strong><span>${s[1]}</span></li>`).join('')}</ol>
+  ${pc.outro ? `<div class="principle-outro">${pc.outro}</div>` : ''}
+</div>`;
+
     // 필수 포함
     const must = [];
     must.push(['&#128221;', '<strong class="hl-text">자막은 크게</strong><br>한눈에 읽히도록 크고 또렷하게 넣어주세요.', true]);
