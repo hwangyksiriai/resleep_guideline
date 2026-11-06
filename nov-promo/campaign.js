@@ -12,7 +12,7 @@ window.CAMPAIGN = {
   format: '릴스 (Reels)',
 
   details: [
-    ['업로드 기간', '<strong><span class="nb">11월 9일 ~ 22일</span></strong>']
+    ['업로드 기간', '<strong><span class="nb">11월 9일 ~ 17일</span></strong>']
   ],
 
   purpose: {
