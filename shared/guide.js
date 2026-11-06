@@ -60,6 +60,15 @@
 </div></div>`;
   }
 
+  // [부모가 걱정하는 상황, 무엇이 걱정되는지, 예시 문구]
+  function situationCards(rows) {
+    return `<div class="situ-list">${list(rows).map((r, i) => `<div class="situ-card">
+  <div class="situ-head"><span class="situ-num">${i + 1}</span>${r[0]}</div>
+  <div class="situ-worry"><span>걱정</span>${r[1]}</div>
+  <div class="quote-chip">${r[2]}</div>
+</div>`).join('')}</div>`;
+  }
+
   function keyItem(badge, text) {
     return `<div class="key-msg-item"><div class="key-msg-badge">${badge}</div><div class="key-msg-text">${text}</div></div>`;
   }
@@ -80,12 +89,14 @@
   function glance() {
     const period = (list(C.details).find(d => /기간/.test(d[0])) || [])[1];
     const rows = [['기간', period], ['형식', C.format], ['메인 메시지', P.mainPoint],
-      ['기획전', C.promo && C.promo.maxDiscount ? `할인은 <strong>"최대 ${C.promo.maxDiscount}"</strong>로만 표기` : ''],
+      ['기획전', C.promo && C.promo.maxDiscount ? `${C.promo.period ? `<strong>${C.promo.period}</strong> &middot; ` : ''}할인은 <strong>"최대 ${C.promo.maxDiscount}"</strong>로만 표기` : ''],
       ['업로드 유지', C.keepPeriod || '3개월'], ['2차 활용', C.secondaryUse || '동의']].filter(r => r[1]);
-    const checks = [];
-    checks.push('<strong>본인 목소리</strong>로 더빙 (AI 더빙 불가)');
-    if (C.childRequired) checks.push('<strong>아이와 함께</strong> 등장하는 장면 넣기');
-    checks.push('영상 속 <strong>자막은 크게</strong>');
+    let checks = list(C.checks);   // 캠페인에서 직접 정하면 그 목록을 씁니다
+    if (!checks.length) {
+      checks.push('<strong>본인 목소리</strong>로 더빙 (AI 더빙 불가)');
+      if (C.childRequired) checks.push('<strong>아이와 함께</strong> 등장하는 장면 넣기');
+      checks.push('영상 속 <strong>자막은 크게</strong>');
+    }
     checks.push(`캡션 첫 줄 표기 + <strong>공동작업자 초대</strong> (<span class="nb">${B.account}</span>)`);
     return `<div class="glance"><div class="glance-card">
   <div class="glance-title">한눈에 보기</div>
@@ -158,7 +169,13 @@
   ${has(P.emphasis) ? keyItem('강조 포인트', `<ul class="sub-list" style="margin-top:0;">${P.emphasis.map(e => `<li>${e}</li>`).join('')}</ul>`) : ''}
 </div>`;
 
-    if (has(P.flowRequests)) h += `<div class="note-box"><div class="note-box-title">🎯 영상 흐름</div>
+    // 브랜드가 '꼭 적용'을 요청한 항목 (situations: true 면 상황 기준표를 함께 보여줌)
+    const ka = C.keyAsks;
+    if (ka && has(ka.items)) h += `<div class="ask-box"><div class="ask-title">&#11088; ${ka.title || '꼭 적용해 주세요'}</div>${ka.intro ? `<div class="ask-intro">${ka.intro}</div>` : ''}
+  ${ka.items.map((it, i) => `<div class="ask-item"><div class="ask-item-head"><span>${i + 1}</span>${it.title}</div>${it.desc ? `<div class="ask-item-desc">${it.desc}</div>` : ''}${it.situations ? situationCards(P.situationTable) : ''}${has(it.links) ? `<div class="ask-links">${it.links.map(l => `<a href="${l[0]}" target="_blank" rel="noopener" class="concept-ref-link"><span>${l[1]}</span></a>`).join('')}</div>` : ''}</div>`).join('')}
+</div>`;
+
+    if (has(P.flowRequests)) h += `<div class="note-box"><div class="note-box-title">🎯 ${P.flowTitle || '영상 흐름'}</div>
   <ol style="padding-left:18px;font-size:12.5px;color:var(--text-mid);line-height:1.8;">${P.flowRequests.map(f => `<li>${f}</li>`).join('')}</ol></div>`;
 
     // 필수 포함
@@ -187,21 +204,23 @@
 
     // 상세 가이드
     let n = 0; const cs = [];
+    if (has(P.moreSituations)) cs.push(concept(++n, `추가 상황 아이디어&nbsp;&middot;&nbsp;<span class="nb">${P.moreSituations.length}가지</span>`,
+      `<div class="concept-intro">위 기준 외에 참고할 수 있는 상황이에요. <strong>내 경험과 맞는 것</strong>만 골라 써주세요.</div>${situationCards(P.moreSituations)}`));
     if (has(P.situations)) cs.push(concept(++n, `상황적 소구 포인트&nbsp;&middot;&nbsp;<span class="nb">예시 ${P.situations.length}가지</span>`,
       `<div class="concept-intro"><strong>어떤 순간에 잔류세제가 걱정됐는지</strong>, 혹시 세제가 남아 있지 않을까 하는 불안감이 언제 생겼는지 상황적인 표현에 집중해 주세요.<br><span class="hl">아래 예시는 참고만 해주시고, 본인이 실제로 경험한 상황과 행동을 골라 자연스럽게 표현해 주세요.</span></div>
        <div style="margin-top:12px;">${P.situations.map((s, i) => idea(i + 1, '', '', `<div class="concept-quotes" style="margin-top:0;">${s.map(q => `<div class="quote-chip">"${q}"</div>`).join('')}</div>`)).join('')}</div>`));
 
     const sc = C.scenario === false ? null : P.scenario;
-    if (sc) cs.push(concept(++n, `참고용 시나리오&nbsp;&middot;&nbsp;<span class="nb">${sc.cuts.length}컷</span>`,
+    if (sc) cs.push(concept(++n, `${sc.title || '참고용 시나리오'}&nbsp;&middot;&nbsp;<span class="nb">${sc.cuts.length}${sc.unit || '컷'}</span>`,
       `<div class="concept-intro">${sc.intro}</div>
        <div class="bstep-hook"><div class="bstep-hook-label">권장 흐름</div><div class="bstep-hook-line">${sc.flow}</div>${sc.theme ? `<div class="bstep-hook-msg"><span>메인 주제</span>${sc.theme}</div>` : ''}</div>
-       <ol class="bstep-list">${sc.cuts.map((c, i) => `<li class="bstep"><div class="bstep-head"><span class="bstep-num">${String(i + 1).padStart(2, '0')}</span><span class="bstep-name">${c[0]}</span></div><div class="bstep-shot">${c[1]}</div><div class="bstep-line">${c[2]}</div><div class="bstep-props"><span>핵심 자막</span>${c[3]}</div></li>`).join('')}</ol>
+       <ol class="bstep-list">${sc.cuts.map((c, i) => `<li class="bstep"><div class="bstep-head"><span class="bstep-num">${String(i + 1).padStart(2, '0')}</span><span class="bstep-name">${c[0]}</span></div><div class="bstep-shot">${c[1]}</div>${c[2] ? `<div class="bstep-line">${c[2]}</div>` : ''}${c[3] ? `<div class="bstep-props"><span>${sc.capLabel || '핵심 자막'}</span>${c[3]}</div>` : ''}</li>`).join('')}</ol>
        ${sc.footnote ? `<div class="ref-note" style="margin-top:12px;">${sc.footnote}</div>` : ''}`));
 
     const shots = [];
     list(P.mustShots).forEach(s => shots.push(s));
     if (shots.length) {
-      const proof = has(P.proofImages) ? `<div class="proof-grid">${P.proofImages.map(i => `<a class="proof-thumb" href="${img(i[0])}" target="_blank" rel="noopener"><img src="${img(i[0])}" alt="${i[1]}" loading="lazy"><span>${i[1]}</span></a>`).join('')}</div><div class="proof-save">이미지를 누르면 원본이 열려요. 길게 눌러(PC는 우클릭) 저장한 뒤 영상에 활용해 주세요.</div>` : '';
+      const proof = has(P.proofImages) ? `<div class="proof-grid">${P.proofImages.map(i => `<a class="proof-thumb" href="${img(i[0])}" target="_blank" rel="noopener"><img src="${img(i[0])}" alt="${i[1]}" loading="lazy"><span>${i[1]}</span></a>`).join('')}</div><div class="proof-save">${P.proofNote || '이미지를 누르면 원본이 열려요. 길게 눌러(PC는 우클릭) 저장한 뒤 영상에 활용해 주세요.'}</div>` : '';
       cs.push(concept(++n, `영상에 꼭 담아야 할&nbsp;<span class="nb">${shots.length}가지</span>`,
         `<div class="concept-intro">아래 ${shots.length}가지는 영상에 <strong>꼭 표현</strong>해 주세요.</div>
          <div style="margin-top:12px;">${shots.map((s, i) => idea(i + 1, s[0], s[1], i === shots.length - 1 ? proof : '')).join('')}</div>
@@ -210,7 +229,7 @@
 
     const refs = list(C.references || P.references);
     if (has(P.mood) || refs.length) cs.push(concept(++n, '촬영 무드&nbsp;·&nbsp;<span class="nb">참고 레퍼런스</span>',
-      `<div class="concept-intro">자연스러운 장면 위주로 촬영해 주세요.</div>
+      `<div class="concept-intro">${P.moodIntro || '자연스러운 장면 위주로 촬영해 주세요.'}</div>
        <ul class="sub-list" style="margin-top:12px;">${list(P.mood).map(m => `<li>${m}</li>`).join('')}</ul>
        ${refs.length ? `<div class="concept-refs"><div class="concept-quotes-label">참고 콘텐츠</div>${refs.map(r => `<a href="${r[0]}" target="_blank" rel="noopener" class="concept-ref-link"><span>${r[1]}</span></a>`).join('')}</div>` : ''}
        <div class="ref-note" style="margin-top:12px;">&bull; 위 레퍼런스는 <strong>톤&middot;구성 참고용</strong>입니다. 동일하게 따라 하실 필요는 없으며, 채널 톤에 맞게 자유롭게 재해석해 주세요.</div>`));
