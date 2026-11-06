@@ -1276,3 +1276,73 @@
     .principle-steps strong { color: var(--brand-deep); font-size: 12.5px; letter-spacing: 0.04em; }
     .principle-steps span { color: var(--text-dark); }
     .principle-outro { padding-top: 10px; border-top: 1px solid var(--border); }
+
+    /* ---- 제작 가이드 아코디언 ---- */
+    .section .fold-group { margin-top: 20px; }
+    .fold-group .fold-about { margin-top: 0; }
+    .part-tools { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; font-size: 12.5px; color: var(--text-light); }
+    .part-toggle {
+      flex-shrink: 0; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--brand-line);
+      background: #FFFFFF; color: var(--brand-deep); font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .part-list { display: grid; gap: 10px; }
+    .part { border: 1px solid var(--border); border-radius: 14px; background: #FFFFFF; overflow: hidden; }
+    .part[open] { border-color: var(--brand-line); box-shadow: 0 4px 14px rgba(110,98,168,0.08); }
+    .part-sum {
+      display: flex; align-items: center; gap: 12px; padding: 15px 16px; cursor: pointer; list-style: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .part-sum::-webkit-details-marker { display: none; }
+    .part-sum .part-num { width: 26px; height: 26px; font-size: 12.5px; margin-top: 0; }
+    .part-txt { flex: 1; min-width: 0; }
+    .part-sum .part-title { display: block; font-size: 15.5px; }
+    .part-sum .part-desc { display: block; font-size: 12.5px; margin-top: 2px; }
+    .part-chev {
+      flex-shrink: 0; width: 9px; height: 9px; margin-right: 4px;
+      border-right: 2px solid var(--brand-text); border-bottom: 2px solid var(--brand-text);
+      transform: rotate(45deg) translate(-2px, -2px); transition: transform 0.2s;
+    }
+    .part[open] .part-chev { transform: rotate(-135deg) translate(-2px, -2px); }
+    .part[open] .part-sum { border-bottom: 1px solid var(--border); background: var(--cream); }
+    .part-body { padding: 16px; }
+    .part-body > :first-child { margin-top: 0; }
+    .part-body > :last-child { margin-bottom: 0; }
+    .part-key { border: 2px solid var(--brand-deep); }
+    .part-key .part-sum .part-num { background: var(--brand-deep); }
+    .part-key[open] .part-sum { background: #FBF9FF; }
+
+    .ask-item:first-child { padding-top: 0; }
+    .ask-hint { font-size: 12px; color: var(--text-light); margin: 10px 0 0 30px; }
+    .num-list { padding-left: 20px; font-size: 13.5px; color: var(--text-dark); line-height: 1.75; display: grid; gap: 6px; }
+    .num-list + .principle-box { margin-top: 16px; }
+
+    /* 상황 카드: 상황만 보이고 눌러서 예시 */
+    .situ-list { gap: 8px; }
+    .situ-card { padding: 0; }
+    .situ-head { padding: 12px 14px; cursor: pointer; list-style: none; align-items: center; }
+    .situ-head::-webkit-details-marker { display: none; }
+    .situ-title { flex: 1; }
+    .situ-more { flex-shrink: 0; font-size: 11px; font-weight: 700; color: var(--brand-text); padding: 2px 8px; border-radius: 999px; background: var(--brand-pale); }
+    .situ-card[open] .situ-more { background: var(--brand-deep); color: #FFFFFF; }
+    .situ-card[open] .situ-head { padding-bottom: 6px; }
+    .situ-card .situ-worry { margin: 0 14px 8px 42px; }
+    .situ-card .quote-chip { margin: 0 14px 14px 42px; }
+
+    /* 표현 주의 */
+    .guard-title { font-size: 14px; font-weight: 700; margin: 18px 0 8px; }
+    .guard-title:first-child { margin-top: 0; }
+    .guard-title.do { color: var(--brand-deep); }
+    .guard-title.dont { color: var(--caution); }
+    .guard-title span { display: block; font-size: 12px; font-weight: 500; color: var(--text-light); margin-top: 2px; }
+    .hashtag-tip { font-size: 11px; font-weight: 500; color: var(--text-light); margin-left: 4px; }
+
+    @media (max-width: 360px) {
+      .part-sum { padding: 13px 12px; gap: 10px; }
+      .part-body { padding: 14px 12px; }
+      .ask-hint { margin-left: 0; }
+      .situ-card .situ-worry, .situ-card .quote-chip { margin-left: 14px; }
+    }
+    .guard-box.must { background: #FBF9FF; border: 1px solid var(--brand-line); border-left: 4px solid var(--brand-deep); }
+    .guard-box.must .guard-item { color: var(--text-dark); }
+    .guard-box.must .guard-item::before { content: '\2713'; color: var(--brand-deep); opacity: 1; font-weight: 700; }
