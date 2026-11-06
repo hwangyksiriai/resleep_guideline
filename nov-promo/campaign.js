@@ -141,7 +141,7 @@ window.CAMPAIGN = {
     ],
 
     usage: Object.assign({}, window.BRAND.products.cleanbooster.usage, {
-      intro: window.BRAND.products.cleanbooster.usage.intro + '<br>쓰던 세제&middot;유연제는 바꿀 필요 없이 기존 루틴에 더하면 되고, <strong>섬유유연제 대신</strong> 사용해도 돼요.'
+      intro: window.BRAND.products.cleanbooster.usage.intro + '<br>세제나 섬유유연제가 아니라 <strong>헹굼 보조제</strong>예요. 쓰던 세제&middot;유연제는 그대로 두고 기존 루틴에 더해 주세요.'
     })
   },
 
