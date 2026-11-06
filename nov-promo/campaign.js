@@ -86,6 +86,10 @@ window.CAMPAIGN = {
     ],
     situations: [],   // 10월용 상황 예시는 이번 캠페인에서 쓰지 않음
     situation: '',    // 상황 표현은 '꼭 적용' 상황 기준표로 대체
+    // 브리프 '브랜드 설명 _ 참고용' 탭 내용은 가이드에서 빼기로 함 (강조 포인트·제품 핵심 내용·상세 페이지 이미지)
+    emphasis: [],
+    features: [],
+    detailImage: null,
 
     flowTitle: '핵심 내용',
     flowRequests: [
