@@ -87,9 +87,10 @@
 
   // ---------- 한눈에 보기 ----------
   function glance() {
-    const period = (list(C.details).find(d => /기간/.test(d[0])) || [])[1];
-    const rows = [['기간', period], ['형식', C.format], ['메인 메시지', P.mainPoint],
-      ['기획전', C.promo && C.promo.maxDiscount ? `${C.promo.period ? `<strong>${C.promo.period}</strong> &middot; ` : ''}할인은 <strong>"최대 ${C.promo.maxDiscount}"</strong>로만 표기` : ''],
+    const pd = list(C.details).find(d => /기간/.test(d[0])) || [];
+    const rows = [[pd[0], pd[1]], ['형식', C.format], ['메인 메시지', P.mainPoint],
+      ['할인 기간', C.promo && C.promo.period ? `<strong>${C.promo.period}</strong>` : ''],
+      ['할인 표기', C.promo && C.promo.maxDiscount ? `<strong>"최대 ${C.promo.maxDiscount}"</strong>로만 표기` : ''],
       ['업로드 유지', C.keepPeriod || '3개월'], ['2차 활용', C.secondaryUse || '동의']].filter(r => r[1]);
     let checks = list(C.checks);   // 캠페인에서 직접 정하면 그 목록을 씁니다
     if (!checks.length) {
