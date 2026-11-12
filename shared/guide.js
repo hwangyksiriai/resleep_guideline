@@ -81,10 +81,11 @@
   // ---------- 한눈에 보기 ----------
   function glance() {
     const pd = list(C.details).find(d => /기간/.test(d[0])) || [];
-    const rows = [[pd[0], pd[1]], ['형식', C.format], ['메인 메시지', P.mainPoint],
+    // glanceRows: 캠페인별로 '한눈에 보기'에 더 보여줄 줄 (예: 제공 제품, 출고 일정)
+    const rows = [[pd[0], pd[1]], ['형식', C.format]].concat(list(C.glanceRows)).concat([['메인 메시지', P.mainPoint]]).concat([
       ['할인 기간', C.promo && C.promo.period ? `<strong>${C.promo.period}</strong>` : ''],
       ['할인 표기', C.promo && C.promo.maxDiscount ? `<strong>"최대 ${C.promo.maxDiscount}"</strong>로만 표기` : ''],
-      ['업로드 유지', C.keepPeriod || '3개월'], ['2차 활용', C.secondaryUse || '동의']].filter(r => r[1]);
+      ['업로드 유지', C.keepPeriod || '3개월'], ['2차 활용', C.secondaryUse || '동의']]).filter(r => r[1]);
     let checks = list(C.checks);   // 캠페인에서 직접 정하면 그 목록을 씁니다
     if (!checks.length) {
       checks.push('<strong>본인 목소리</strong>로 더빙 (AI 더빙 불가)');
@@ -248,7 +249,7 @@
     let h = `<div class="part-tools"><span>항목을 눌러 펼쳐보세요</span><button type="button" class="part-toggle" id="partToggle">모두 펼치기</button></div><div class="part-list">${parts.map(part).join('')}</div>`;
 
     // cleanCutRequired: 업로드 후 클린본(자막·텍스트·할인 내용 없는 영상)을 필수로 받는 캠페인
-    const review = list(B.ops.draftReview).concat(C.cleanCutRequired ? ['<strong class="hl-text">클린본 제출 (필수):</strong> 업로드 후, <strong>자막&middot;텍스트&middot;기획전 할인 내용이 없는 클린본 영상</strong>을 꼭 함께 전달해 주세요.'] : []);
+    const review = list(B.ops.draftReview).concat(C.cleanCutRequired ? [`<strong class="hl-text">클린본 제출 (필수):</strong> 업로드 후, <strong>자막&middot;텍스트${C.promo ? '&middot;기획전 할인 내용' : ''}이 없는 클린본 영상</strong>을 꼭 함께 전달해 주세요.`] : []);
     if (review.length) h += `<div class="note-box" style="margin-top:20px;"><div class="note-box-title">📌 콘텐츠 초안 전달 및 검수 안내</div><ul>${review.map(d => `<li>${d}</li>`).join('')}</ul></div>`;
     h += `<div class="warning-box">&#9888;&#65039; <strong>업로드 기한 내 올리지 않으면 고료 지급이 불가해요.</strong></div>`;
 
