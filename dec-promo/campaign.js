@@ -34,18 +34,16 @@ window.CAMPAIGN = {
 
   recruit: [
     '<strong>아웃도어&middot;캠핑&middot;등산&middot;러닝</strong> 등을 즐기며 <strong>기능성 의류</strong>(방수&middot;발수 재킷 등)를 입고 직접 관리하시는 분',
-    '기능성 의류를 <strong>세탁하는 과정</strong>과 <strong>원단 위 물방울</strong>을 촬영할 수 있는 분',
-    '<strong>본인 목소리로 더빙</strong> 가능하신 분 (AI 더빙 불가)'
+    '기능성 의류를 <strong>세탁하는 과정</strong>과 <strong>원단 위 물방울</strong>을 촬영할 수 있는 분'
   ],
 
-  voiceRequired: true,    // 실제 목소리 더빙 필수
+  // 본인 목소리 더빙 필수는 이번 브리프에 없어 적용하지 않음 (voiceRequired 없음)
   cleanCutRequired: true, // 업로드 후 클린본 제출 필수
 
   coreRequest: '"깨끗하게 세탁했는데도, <strong>왜 물방울은 예전처럼 굴러가지 않을까?</strong>"라는 질문에서 시작해 주세요. 발수 저하의 원인이 마모만은 아닐 수 있다는 것, 그래서 아웃도어 브랜드들이 <strong>충분한 헹굼</strong>을 권한다는 것을 <strong>차분히 설명하듯</strong> 풀어주세요.',
 
   // '한눈에 보기 > 꼭 지켜주세요' (캡션·공동작업자 항목은 자동으로 붙습니다)
   checks: [
-    '<strong>본인 목소리</strong>로 <strong>차분히 설명하듯</strong> 더빙 (AI 더빙 불가)',
     '썸네일&middot;첫 장면은 <strong>기능성 의류 위 물방울 + 화두</strong>',
     '<strong>프레스키트 언박싱</strong> 장면 포함',
     '<strong>의류 라벨&middot;제조사 세탁 지침</strong>을 우선해서 세탁',
@@ -90,7 +88,7 @@ window.CAMPAIGN = {
       '<strong>원리</strong> &mdash; 발수 표면은 물을 밀어내도록 만들어졌는데, 물을 끌어당기는 <strong>친수성 세제 잔여물</strong>이 남으면 물방울이 굴러떨어지지 않고 퍼지거나 머무를 수 있어요.',
       '<strong>변수</strong> &mdash; 수돗물의 칼슘&middot;마그네슘이 세정 성분과 만나 찌꺼기를 만들거나, 떨어진 오염이 다시 붙는 <strong>재침착</strong>도 생길 수 있어요. <strong>헹굼 횟수만으로는</strong> 모든 잔여물이 빠진다고 장담하기 어려워요.',
       '<strong>제언</strong> &mdash; 그래서 <strong>마지막 헹굼</strong>까지 관리해요. 여기서 잔류세제 제거를 돕는 <strong>클린부스터</strong>를 소개해 주세요. (잔류세제 96.3% 제거, 4 STEP 원리)',
-      '더빙은 <strong>본인 목소리</strong>로, 정보를 전하듯 <strong>차분하게</strong> 해주세요. 브랜드 문구를 그대로 읽지 말고 내 말로 풀어주세요.'
+      '정보를 전하듯 <strong>차분하게</strong> 풀어주세요. 브랜드 문구를 그대로 읽지 말고 내 말로 풀어주세요.'
     ],
 
     principle: {
@@ -175,8 +173,6 @@ window.CAMPAIGN = {
     enabled: true,
     gasUrl: 'https://script.google.com/macros/s/AKfycbwt202UzFI0ON1AlCt06ecvDWHS99TOKSXL2qovpwGFAMvqQqGY0zFRkz3IGrYIzlUw4w/exec',
     questions: [
-      { key: 'voice', label: '실제 목소리 더빙 가능 여부', sheetLabel: '더빙 가능', type: 'radio', required: true,
-        options: ['가능', '불가능'] },
       { key: 'activity', label: '주로 즐기는 활동', sheetLabel: '활동 분야', type: 'checkbox', required: true,
         help: '해당하는 것을 모두 선택해 주세요.',
         options: ['캠핑', '등산', '러닝', '골프', '스키·보드', '기타 아웃도어'] },

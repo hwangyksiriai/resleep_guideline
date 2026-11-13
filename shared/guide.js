@@ -88,7 +88,7 @@
       ['업로드 유지', C.keepPeriod || '3개월'], ['2차 활용', C.secondaryUse || '동의']]).filter(r => r[1]);
     let checks = list(C.checks);   // 캠페인에서 직접 정하면 그 목록을 씁니다
     if (!checks.length) {
-      checks.push('<strong>본인 목소리</strong>로 더빙 (AI 더빙 불가)');
+      if (C.voiceRequired) checks.push('<strong>본인 목소리</strong>로 더빙 (AI 더빙 불가)');
       if (C.childRequired) checks.push('<strong>아이와 함께</strong> 등장하는 장면 넣기');
       checks.push('영상 속 <strong>자막은 크게</strong>');
     }
@@ -192,7 +192,7 @@
     // 필수 체크리스트
     const must = [];
     must.push(['&#128221;', '<strong class="hl-text">자막은 크게</strong><br>한눈에 읽히도록 크고 또렷하게 넣어주세요.', true]);
-    must.push(['&#127908;', '<strong class="hl-text">본인 목소리로 더빙</strong><br>음악만 깔지 말고 음성을 꼭 넣어주세요. <strong>AI 더빙 불가.</strong>', true]);
+    if (C.voiceRequired) must.push(['&#127908;', '<strong class="hl-text">본인 목소리로 더빙</strong><br>음악만 깔지 말고 음성을 꼭 넣어주세요. <strong>AI 더빙 불가.</strong>', true]);
     if (P.nameRule) must.push(['&#127991;&#65039;', P.nameRule, true]);
     if (C.childRequired) must.push(['&#127916;', '<strong>아이와 함께 등장</strong><br>정돈된 아이 옷&middot;가족 섬유, 세탁실, <strong>실제 사용법</strong>(계량 &rarr; 유연제 칸 투입)을 함께 담아주세요.']);
     list(C.extraMust).forEach(m => must.push(['&#10004;', m]));
