@@ -173,6 +173,7 @@ window.CAMPAIGN = {
 
   application: {
     enabled: true,
+    sheetTab: '12월 (반려견)',   // 구글시트 탭 이름 (시트에 만든 탭과 똑같아야 함)
     gasUrl: 'https://script.google.com/macros/s/AKfycbwt202UzFI0ON1AlCt06ecvDWHS99TOKSXL2qovpwGFAMvqQqGY0zFRkz3IGrYIzlUw4w/exec',
     // 브랜드 요청: 반려견 모습, 옷 보유, 방석 같은 섬유에서 쉬는지 미리 확인
     questions: [

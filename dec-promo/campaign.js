@@ -171,6 +171,7 @@ window.CAMPAIGN = {
 
   application: {
     enabled: true,
+    sheetTab: '12월 (프레스키트)',   // 구글시트 탭 이름 (시트에 만든 탭과 똑같아야 함)
     gasUrl: 'https://script.google.com/macros/s/AKfycbwt202UzFI0ON1AlCt06ecvDWHS99TOKSXL2qovpwGFAMvqQqGY0zFRkz3IGrYIzlUw4w/exec',
     questions: [
       { key: 'activity', label: '주로 즐기는 활동', sheetLabel: '활동 분야', type: 'checkbox', required: true,
