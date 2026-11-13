@@ -14,13 +14,13 @@ window.CAMPAIGN = {
   format: '릴스 (Reels)',
 
   details: [
-    ['업로드 기간', '<strong><span class="nb">12월 2~3주차</span></strong>']
+    ['진행 기간', '<strong><span class="nb">12월 초</span></strong> 진행 예정']
   ],
 
   // 프레스키트는 판매용이 아닌 시딩용이지만, 페이지에는 '참여 인플루언서에게만 드리는 스페셜 키트'로 안내
   glanceRows: [
     ['제공 제품', '<strong>클린부스터 프레스키트</strong><br><span class="nb">15만원 상당</span> &middot; 인플루언서 전용 스페셜 키트'],
-    ['키트 출고', '<strong><span class="nb">11월 27일</span></strong> 출고 예정']
+    ['키트 일정', '<span class="nb">11월 25일</span> 생산 완료 예정<br><strong><span class="nb">11월 27일</span></strong> 출고 가능 예정']
   ],
 
   purpose: {
@@ -29,7 +29,7 @@ window.CAMPAIGN = {
   },
   overviewItems: [
     ['제공 키트', '<strong>클린부스터 프레스키트</strong> (15만원 상당)<br>참여 인플루언서에게만 제공되는 <strong>한정 스페셜 키트</strong>예요.'],
-    ['키트 일정', '11월 25일 생산 &rarr; <strong>11월 27일 출고 예정</strong> &rarr; 12월 2~3주차 업로드']
+    ['키트 일정', '11월 25일 생산 완료 예정 &rarr; <strong>11월 27일 출고 가능 예정</strong> &rarr; 12월 초 진행']
   ],
 
   recruit: [
