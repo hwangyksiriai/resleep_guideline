@@ -171,6 +171,17 @@
     if (ka && has(ka.items)) parts.push({ title: '&#11088; ' + (ka.title || '꼭 적용해 주세요'), desc: ka.intro, cls: 'part-key', open: true,
       body: ka.items.map((it, i) => `<div class="ask-item"><div class="ask-item-head"><span>${i + 1}</span>${it.title}</div>${it.desc ? `<div class="ask-item-desc">${it.desc}</div>` : ''}${it.situations ? `<div class="ask-hint">상황을 누르면 걱정 포인트와 예시 문구가 보여요.</div>${situationCards(P.situationTable)}` : ''}${has(it.links) ? refLinks(it.links) : ''}</div>`).join('') });
 
+    // narratives: 브랜드가 준 서사(주제)들 — 크리에이터가 하나를 골라 자유롭게 풀어감
+    const nv = C.narratives;
+    if (nv && has(nv.items)) parts.push({ title: nv.title || '주제 선택', desc: nv.intro, open: true,
+      body: `<div class="narr-list">${nv.items.map((it) => `<details class="narr-card">
+  <summary class="narr-head"><span class="narr-tag">${it.tag}</span><span class="narr-title">${it.title}</span><span class="narr-one">${it.oneLiner}</span><span class="narr-more">서사 보기</span></summary>
+  <div class="narr-body">
+    <ol class="narr-steps">${list(it.steps).map((st) => `<li><strong>${st[0]}</strong><span>${st[1]}</span></li>`).join('')}</ol>
+    ${has(it.refs) ? `<div class="narr-refs"><div class="concept-quotes-label">참고 근거 (말로 출처만 언급)</div><ul class="sub-list">${it.refs.map((r) => `<li>${r}</li>`).join('')}</ul></div>` : ''}
+  </div>
+</details>`).join('')}</div>` });
+
     // 핵심 내용 · 작용 원리
     const pc = P.principle;
     if (has(P.flowRequests) || pc) parts.push({ title: (P.flowTitle || '영상 흐름') + (pc ? ' &middot; 작용 원리' : ''), desc: '영상에 담을 내용과 원리 설명 방법이에요.',
@@ -183,7 +194,7 @@
 
     // 콘텐츠 흐름 (시나리오)
     const sc = C.scenario === false ? null : P.scenario;
-    if (sc) parts.push({ title: `${sc.title || '참고용 시나리오'} &middot; <span class="nb">${sc.cuts.length}${sc.unit || '컷'}</span>`, desc: '이 순서로 이어가 주세요. 멘트는 예시예요.',
+    if (sc) parts.push({ title: `${sc.title || '참고용 시나리오'} &middot; <span class="nb">${sc.cuts.length}${sc.unit || '컷'}</span>`, tag: sc.tag, desc: sc.desc || '이 순서로 이어가 주세요. 멘트는 예시예요.',
       body: `<div class="concept-intro">${sc.intro}</div>
        <div class="bstep-hook"><div class="bstep-hook-label">권장 흐름</div><div class="bstep-hook-line">${sc.flow}</div>${sc.theme ? `<div class="bstep-hook-msg"><span>메인 주제</span>${sc.theme}</div>` : ''}</div>
        <ol class="bstep-list">${sc.cuts.map((c, i) => `<li class="bstep"><div class="bstep-head"><span class="bstep-num">${String(i + 1).padStart(2, '0')}</span><span class="bstep-name">${c[0]}</span></div><div class="bstep-shot">${c[1]}</div>${c[2] ? `<div class="bstep-line">${c[2]}</div>` : ''}${c[3] ? `<div class="bstep-props"><span>${sc.capLabel || '핵심 자막'}</span>${c[3]}</div>` : ''}</li>`).join('')}</ol>

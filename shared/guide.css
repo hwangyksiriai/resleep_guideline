@@ -1395,3 +1395,21 @@
       .glance-key { width: 64px; }
       .part-sum .part-title { font-size: 15px; }
     }
+
+    /* 주제(서사) 선택 카드 */
+    .narr-list { display: grid; gap: 10px; }
+    .narr-card { border: 1px solid var(--border); border-radius: 12px; background: #FFFFFF; overflow: hidden; }
+    .narr-card[open] { border-color: var(--brand-line); }
+    .narr-head { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; padding: 14px; cursor: pointer; list-style: none; min-height: 46px; }
+    .narr-head::-webkit-details-marker { display: none; }
+    .narr-tag { grid-column: 1; justify-self: start; padding: 2px 8px; border-radius: 999px; background: var(--brand-deep); color: #FFFFFF; font-size: 11.5px; font-weight: 700; }
+    .narr-more { grid-column: 2; grid-row: 1; align-self: start; font-size: 11.5px; font-weight: 700; color: var(--brand-text); padding: 2px 8px; border-radius: 999px; background: var(--brand-pale); white-space: nowrap; }
+    .narr-card[open] .narr-more { background: var(--brand-deep); color: #FFFFFF; }
+    .narr-title { grid-column: 1 / -1; font-size: 15px; font-weight: 700; color: var(--text-dark); line-height: 1.45; }
+    .narr-one { grid-column: 1 / -1; font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+    .narr-body { padding: 0 14px 14px; border-top: 1px solid var(--border); background: var(--cream); }
+    .narr-steps { list-style: none; counter-reset: ns; display: grid; gap: 10px; padding-top: 12px; }
+    .narr-steps li { counter-increment: ns; display: grid; grid-template-columns: auto 1fr; column-gap: 10px; font-size: 13.5px; line-height: 1.65; color: var(--text-dark); }
+    .narr-steps li::before { content: counter(ns); grid-row: span 2; width: 22px; height: 22px; border-radius: 50%; background: var(--brand-pale); color: var(--brand-deep); font-size: 12px; font-weight: 700; line-height: 22px; text-align: center; margin-top: 1px; }
+    .narr-steps strong { color: var(--brand-deep); }
+    .narr-refs { margin-top: 12px; }
