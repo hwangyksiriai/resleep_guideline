@@ -271,14 +271,14 @@
   function application() {
     const qs = list(C.application.questions);
     return section('Application', '캠페인 신청', `<form id="applicationForm">
-  <div class="form-group"><label class="form-label" for="appName">이름<span class="req">*</span></label><input type="text" id="appName" name="name" class="form-input" placeholder="홍길동" required></div>
-  <div class="form-group"><label class="form-label" for="appInstagram">인스타그램 링크<span class="req">*</span></label><input type="text" id="appInstagram" name="instagram" class="form-input" placeholder="@username 또는 instagram.com/username" required></div>
-  <div class="form-group"><label class="form-label" for="appPhone">휴대폰<span class="req">*</span></label><input type="tel" id="appPhone" name="phone" class="form-input" placeholder="010-0000-0000" inputmode="numeric" pattern="[0-9\\-]*" required></div>
-  <div class="form-group"><label class="form-label" for="appEmail">이메일<span class="opt">(선택)</span></label><input type="email" id="appEmail" name="email" class="form-input" placeholder="name@email.com"></div>
+  <div class="form-group"><label class="form-label" for="appName">이름<span class="req">*</span></label><input type="text" id="appName" name="name" class="form-input" placeholder="홍길동" autocomplete="name" required></div>
+  <div class="form-group"><label class="form-label" for="appInstagram">인스타그램 링크<span class="req">*</span></label><input type="text" id="appInstagram" name="instagram" class="form-input" placeholder="@username 또는 instagram.com/username" autocapitalize="off" autocorrect="off" spellcheck="false" required></div>
+  <div class="form-group"><label class="form-label" for="appPhone">휴대폰<span class="req">*</span></label><input type="tel" id="appPhone" name="phone" class="form-input" placeholder="010-0000-0000" inputmode="numeric" autocomplete="tel" pattern="[0-9\\-]*" required></div>
+  <div class="form-group"><label class="form-label" for="appEmail">이메일<span class="opt">(선택)</span></label><input type="email" id="appEmail" name="email" class="form-input" placeholder="name@email.com" autocomplete="email" autocapitalize="off"></div>
   ${qs.map(questionField).join('')}
   <div class="form-group"><label class="form-label" for="appZip">우편번호<span class="req">*</span></label><div class="form-row-zip"><input type="text" id="appZip" name="zipcode" class="form-input" placeholder="00000" inputmode="numeric" maxlength="5" readonly required><button type="button" class="zip-search-btn" id="zipBtn">주소 검색</button></div></div>
   <div class="form-group"><label class="form-label" for="appRoadAddress">배송지 주소<span class="req">*</span></label><input type="text" id="appRoadAddress" name="roadAddress" class="form-input" placeholder="도로명 주소" readonly required></div>
-  <div class="form-group"><label class="form-label" for="appDetailAddress">상세 주소<span class="req">*</span></label><input type="text" id="appDetailAddress" name="detailAddress" class="form-input" placeholder="동·호수 등" required></div>
+  <div class="form-group"><label class="form-label" for="appDetailAddress">상세 주소<span class="req">*</span></label><input type="text" id="appDetailAddress" name="detailAddress" class="form-input" placeholder="동·호수 등" autocomplete="address-line2" required></div>
   <div class="form-group"><label class="form-label" for="appNote">요청사항<span class="opt">(선택)</span></label><textarea id="appNote" name="note" class="form-textarea" placeholder="배송 관련 요청사항을 적어주세요"></textarea></div>
   <div class="warning-box">⚠️ <strong>배송지는 매 캠페인마다 새로 확인합니다.</strong><br>오배송 방지를 위해 입력값을 다시 한번 체크해 주세요.</div>
   <div class="note-box" style="margin-top:16px;"><div class="note-box-title">📌 콘텐츠 활용</div><ul><li>브랜드 계정 스토리&middot;피드, 그리고 2차 활용 동의 시 ${B.name} 홈페이지&middot;SNS&middot;플랫폼에 활용될 수 있어요.</li></ul></div>
