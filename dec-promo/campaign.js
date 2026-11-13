@@ -82,7 +82,8 @@ window.CAMPAIGN = {
         refs: [
           '<strong>니왁스(Nikwax)</strong> &mdash; 일반 세제의 친수성 잔여물이 다운&middot;겉감의 발수를 방해하고, 수분 흡수로 보온 저하로 이어질 수 있다고 설명',
           '<strong>고어텍스(GORE-TEX)</strong> &mdash; 세제가 충분히 제거되도록 두 번 헹굼 권장',
-          '<strong>아크테릭스(Arc\'teryx)</strong> &mdash; 잔여 세정 성분이 발수 가공&middot;성능에 영향을 줄 수 있어 추가 헹굼 안내'
+          '<strong>아크테릭스(Arc\'teryx)</strong> &mdash; 잔여 세정 성분이 발수 가공&middot;성능에 영향을 줄 수 있어 추가 헹굼 안내',
+          '<strong>아크테릭스(Arc\'teryx) 다운 세탁 가이드</strong> &mdash; 다운 의류는 전용 세제를 쓰고, 세제&middot;잔여물이 남지 않도록 두 번 헹군 뒤 충분히 건조하도록 권장'
         ] },
       { tag: '주제 ②', title: '고급 의류편 &mdash; 울&middot;실크&middot;캐시미어',
         oneLiner: '울&middot;실크&middot;캐시미어의 촉감과 광택, 세탁 뒤 남는 세제 잔여물도 관리의 변수예요. 마지막 헹굼에서 리슬립 섬유청결제 클린부스터로 잔류세제를 케어해보세요.',
@@ -192,12 +193,14 @@ window.CAMPAIGN = {
   extraDos: [
     '세제 잔여물은 옷 컨디션 변화의 <strong>가능한 원인 중 하나</strong>로 표현',
     '실제 소재 손상(마모&middot;노후화)과 잔여물의 영향은 <strong>구분해서</strong> 설명',
+    '발수(겉감이 물을 튕겨내는 기능)와 방수(물이 안으로 들어오지 않는 기능)는 <strong>다른 기능</strong>으로 구분해서 설명',
     '의류 케어라벨과 제조사 세탁 지침을 <strong>우선</strong>한다는 점을 함께 안내'
   ],
   extraDonts: [
     '<strong>보온성&middot;발수성 회복</strong>이나 기능 유지 효과를 제품 효능처럼 표현하지 않음',
     '<strong>촉감&middot;광택&middot;탄성 복원</strong>이나 손상 방지 효과를 제품 효능처럼 표현하지 않음',
     '옷의 변화를 <strong>잔류세제 하나 때문</strong>이라고 단정하지 않음',
+    '겉감이 젖는 것을 <strong>방수 기능 손상</strong>과 같은 의미로 설명하지 않음',
     '니왁스&middot;고어텍스&middot;아크테릭스&middot;울마크 등이 <strong>리슬립 섬유청결제 클린부스터를 추천&middot;보증하는 것처럼</strong> 표현하지 않음',
     '4단계 작용을 <strong>과학적으로 입증된 것처럼</strong> 단정하지 않음 (브랜드 설명을 전하는 톤으로)',
     '다른 브랜드의 로고&middot;공식 사이트 캡처를 영상에 쓰지 않음 (말로 출처만 언급)',
