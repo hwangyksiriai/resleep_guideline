@@ -1346,3 +1346,13 @@
     .guard-box.must { background: #FBF9FF; border: 1px solid var(--brand-line); border-left: 4px solid var(--brand-deep); }
     .guard-box.must .guard-item { color: var(--text-dark); }
     .guard-box.must .guard-item::before { content: '\2713'; color: var(--brand-deep); opacity: 1; font-weight: 700; }
+
+    /* 제출 완료 안내 창 */
+    .done-modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(36,30,51,0.45); }
+    .done-modal[hidden] { display: none; }
+    .done-card { width: 100%; max-width: 340px; background: #FFFFFF; border-radius: 18px; padding: 28px 22px 20px; text-align: center; box-shadow: 0 20px 50px rgba(30,20,60,0.25); }
+    .done-icon { width: 52px; height: 52px; margin: 0 auto 14px; border-radius: 50%; background: var(--brand-deep); color: #FFFFFF; font-size: 26px; font-weight: 700; line-height: 52px; }
+    .done-title { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .done-text { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 20px; }
+    .done-text strong { color: var(--brand-deep); }
+    .done-btn { width: 100%; padding: 14px; border: none; border-radius: 12px; background: var(--text-dark); color: #FFFFFF; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; }

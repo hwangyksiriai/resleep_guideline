@@ -301,7 +301,15 @@
   document.title = `${B.name} — ${C.pageTitle || '인플루언서 가이드라인'}`;
   const body = overview() + contentGuide() + (formOn ? application() : '') + settlement();
   document.getElementById('app').innerHTML = banner() + glance() + stepNav() + body +
-    `<div class="footer"><strong>${B.nameEn} (${B.name})</strong><br>본 가이드라인은 선별된 크리에이터에게만 제공되는 자료입니다.<br>문의사항이 있으시면 담당자에게 연락해 주세요.</div><div class="copy-toast" id="copyToast"></div>`;
+    `<div class="footer"><strong>${B.nameEn} (${B.name})</strong><br>본 가이드라인은 선별된 크리에이터에게만 제공되는 자료입니다.<br>문의사항이 있으시면 담당자에게 연락해 주세요.</div><div class="copy-toast" id="copyToast"></div>` +
+    (formOn ? `<div class="done-modal" id="doneModal" role="dialog" aria-modal="true" aria-labelledby="doneTitle" hidden>
+  <div class="done-card">
+    <div class="done-icon" aria-hidden="true">&#10003;</div>
+    <div class="done-title" id="doneTitle">신청이 완료되었어요</div>
+    <div class="done-text">${C.application.doneMessage || '브랜드 선정 후, 선정되신 분께<br><strong class="nb">개별로 안내</strong>드릴게요.<br>신청해 주셔서 감사합니다!'}</div>
+    <button type="button" class="done-btn" id="doneClose">확인</button>
+  </div>
+</div>` : '');
 
   // ---------- 동작 ----------
   function showToast(text) {
@@ -347,6 +355,14 @@
   $('appInstagram').addEventListener('blur', (e) => { if (e.target.value.trim()) e.target.value = normIg(e.target.value); });
   const utf8ToBase64 = (str) => btoa(unescape(encodeURIComponent(str)));
 
+  // 제출 완료 안내 창
+  const doneModal = $('doneModal');
+  const openDone = () => { doneModal.hidden = false; $('doneClose').focus(); };
+  const closeDone = () => { doneModal.hidden = true; };
+  $('doneClose').addEventListener('click', closeDone);
+  doneModal.addEventListener('click', (e) => { if (e.target === doneModal) closeDone(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !doneModal.hidden) closeDone(); });
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     // 체크박스 문항 필수 확인
@@ -375,7 +391,7 @@
     if (!url) { console.log('캠페인 신청 데이터', payload); showToast('구글시트 연동 URL이 설정되지 않았습니다'); return; }
     const btn = form.querySelector('.submit-btn'); btn.disabled = true; btn.textContent = '제출 중...';
     fetch(url, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: utf8ToBase64(JSON.stringify(payload)) })
-      .then(() => { showToast('제출이 완료되었습니다'); form.reset(); })
+      .then(() => { form.reset(); openDone(); })
       .catch(() => showToast('제출 중 오류가 발생했습니다. 다시 시도해 주세요.'))
       .finally(() => { btn.disabled = false; btn.textContent = `${B.name} 캠페인 지원서 제출하기`; });
   });
