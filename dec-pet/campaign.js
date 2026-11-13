@@ -13,7 +13,7 @@ window.CAMPAIGN = {
   format: '릴스 (Reels)',
 
   details: [
-    ['업로드 기간', '']   // 업로드 기간 확정 시 입력 (예: '<strong><span class="nb">12월 1~2주차</span></strong>')
+    ['업로드 기간', '<strong><span class="nb">11월 23일 ~ 27일</span></strong>']
   ],
 
   purpose: {
