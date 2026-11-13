@@ -57,7 +57,7 @@
   function situationCards(rows) {
     return `<div class="situ-list">${list(rows).map((r, i) => `<details class="situ-card">
   <summary class="situ-head"><span class="situ-num">${i + 1}</span><span class="situ-title">${r[0]}</span><span class="situ-more">예시</span></summary>
-  <div class="situ-worry"><span>걱정</span>${r[1]}</div>
+  ${r[1] ? `<div class="situ-worry"><span>걱정</span>${r[1]}</div>` : ''}
   <div class="quote-chip">${r[2]}</div>
 </details>`).join('')}</div>`;
   }
@@ -233,7 +233,7 @@
        <div class="ref-note" style="margin-top:12px;">&bull; 레퍼런스는 <strong>톤&middot;구성 참고용</strong>이에요. 똑같이 따라 하지 않아도 되고, 채널 톤에 맞게 바꿔도 돼요.</div>` });
 
     // 상황 예시 (참고용)
-    if (has(P.moreSituations)) parts.push({ title: `추가 상황 아이디어 &middot; <span class="nb">${P.moreSituations.length}가지</span>`, tag: '참고용', desc: '<strong>내 경험과 맞는 것</strong>만 골라 써주세요.', body: situationCards(P.moreSituations) });
+    if (has(P.moreSituations)) parts.push({ title: `${P.moreSituationsTitle || '추가 상황 아이디어'} &middot; <span class="nb">${P.moreSituations.length}가지</span>`, tag: '참고용', desc: P.moreSituationsDesc || '<strong>내 경험과 맞는 것</strong>만 골라 써주세요.', body: (P.moreSituationsIntro ? `<div class="concept-intro">${P.moreSituationsIntro}</div>` : '') + situationCards(P.moreSituations) });
     if (has(P.situations)) parts.push({ title: `상황적 소구 포인트 &middot; <span class="nb">예시 ${P.situations.length}가지</span>`, tag: '참고용', desc: '실제로 겪은 상황을 골라 자연스럽게 표현해 주세요.',
       body: P.situations.map((st, i) => idea(i + 1, '', '', `<div class="concept-quotes" style="margin-top:0;">${st.map(q => `<div class="quote-chip">"${q}"</div>`).join('')}</div>`)).join('') });
 
