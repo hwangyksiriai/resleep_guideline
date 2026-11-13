@@ -186,8 +186,9 @@ window.CAMPAIGN = {
       { key: 'fabric', label: '반려견이 주로 쉬는 곳', sheetLabel: '쉬는 섬유', type: 'checkbox', required: true,
         help: '해당하는 곳을 모두 선택해 주세요.',
         options: ['방석', '담요', '쿠션', '반려견 침대', '보호자 침구·소파', '기타'] },
-      { key: 'dogpost', label: '반려견이 나온 게시물 링크', sheetLabel: '반려견 게시물', type: 'text', required: false,
-        placeholder: '옷 입은 모습이나 방석·담요 위 모습이 보이는 게시물이면 좋아요' }
+      { key: 'dogpost', label: '반려견이 나온 게시물 링크', sheetLabel: '반려견 게시물', type: 'text', required: true,
+        help: '옷 입은 모습이나 방석·담요 위에서 쉬는 모습이 보이는 게시물이면 좋아요.',
+        placeholder: 'https://www.instagram.com/p/...' }
     ]
   }
 };
